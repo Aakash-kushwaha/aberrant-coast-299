@@ -1,0 +1,23 @@
+.details{
+    position: absolute;
+    width: 100px;
+    top:-6;
+    z-index: 100;
+  margin-left: 3.5rem;
+
+    /* border:1px solid blue */
+}
+
+
+
+.percentcount{
+  position: absolute;
+  width:90px;
+  /* top:-6; */
+  /* margin-left: -2rem; */
+  z-index: 100;
+
+
+  /* border:1px solid blue */
+}
+
