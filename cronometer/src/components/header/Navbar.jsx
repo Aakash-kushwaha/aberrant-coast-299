@@ -74,19 +74,19 @@ const Navbar = () => {
                 </MenuList>
               </Menu>
             </Box>
-            <Box>
+            <Box _hover={{color:'#ff763f'}}>
               <RouterLink to='/'>Support</RouterLink>
             </Box>
-            <Box>  <RouterLink to='/'>Blogs</RouterLink></Box>
-            <Box>  <RouterLink to='/'>Foroms</RouterLink></Box>
-            <Box>  <RouterLink to='/'>About</RouterLink></Box>
+            <Box _hover={{color:'#ff763f'}}>  <RouterLink to='/' >Blogs</RouterLink></Box>
+            <Box _hover={{color:'#ff763f'}}>  <RouterLink to='/' >Foroms</RouterLink></Box>
+            <Box _hover={{color:'#ff763f'}}>  <RouterLink to='/' >About</RouterLink></Box>
             <Box>
             <Button          
              lineHeight='1.2'
              transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
              border='1.5px solid #ff763f'
              px='8px'
-             borderRadius='2px'
+             borderRadius='5px'
              fontSize='18px'
              fontWeight='semibold'
              bg='#fff'
@@ -103,7 +103,7 @@ const Navbar = () => {
                  '0 0 1px 2px rgba(255, 118, 63, .75), 0 1px 1px rgba(0, 0, 0, .15)',
              }}
             >
-             Login
+             SignUp
             </Button>
             </Box>
           </Flex>
