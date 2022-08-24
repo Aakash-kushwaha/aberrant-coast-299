@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use("/", UserController);
 app.use("/food", FoodController);
-
+//App is listening over here
 app.listen(PORT, async () => {
   try {
     await connection;
