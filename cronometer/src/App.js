@@ -1,12 +1,12 @@
 
 import './App.css';
-import RoutePage from './routes/RoutePage';
+import MainRoute from './routes/MainRoute';
 
 
 function App() {
   return (
     <div className="App">
-    <RoutePage/>
+    <MainRoute/>
     </div>
   );
 }
