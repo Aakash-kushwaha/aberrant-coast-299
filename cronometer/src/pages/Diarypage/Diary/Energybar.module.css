@@ -1,0 +1,54 @@
+.Energybar{
+    /* border:1px solid red; */
+    display: flex;
+    
+    
+}
+.consumed_burned{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width:380px;
+    height: 167px;
+
+}
+.consumed_burnedmain{
+    border:1px solid whitesmoke
+}
+
+.macronutrients{
+    width:380px;
+    height: 167px;
+    /* border:1px solid red; */
+    text-align: left;
+ 
+}
+
+.macronutrientsmain{
+   border:1px solid whitesmoke
+}
+
+.budget{
+    height: 117px;
+    width:105px;
+    /* border:1px solid black; */
+    background-color:#77639A;
+    border-radius: 7px; 
+}
+
+.caloriesremain{
+  position: absolute;
+  margin-left: 1rem;
+
+  margin-top: 1rem;
+}
+
+.caloriesdetails{
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+}
+.caloriesdetailstext{
+    color:white;
+
+}
