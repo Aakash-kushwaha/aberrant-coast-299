@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/user", UserController);
+app.use("/", UserController);
 app.use("/food", FoodController);
 
 app.listen(PORT, async () => {

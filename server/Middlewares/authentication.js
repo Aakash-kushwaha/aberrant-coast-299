@@ -2,13 +2,13 @@ require("dotenv").config();
 var jwt = require("jsonwebtoken");
 const authentication = async (req, res, next) => {
   if (!req.headers.authorization) {
-    return res.send("Please login again");
+    return res.send({ login: false, message: "Please login again" });
   }
   const usertoken = req.headers.authorization;
 
   await jwt.verify(usertoken, process.env.secret_key, function (err, decoded) {
     if (err) {
-      return res.send("Please login again");
+      return res.send({ login: false, message: "Please login again" });
     }
 
     req.body.email = decoded.email;
