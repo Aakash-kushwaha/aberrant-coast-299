@@ -1,8 +1,11 @@
 import React from 'react'
+import {Routes} from "react-router-dom"
 
 const route = () => {
   return (
-    <div>route</div>
+    <Routes>
+       <Route ></Route>
+    </Routes>
   )
 }
 
