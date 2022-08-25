@@ -2,42 +2,55 @@ import * as types from "./actionType"
 
 const initialdata = {
     Food:null,
+    UserfoodData:null,
     id:null,
-    data:null,
     error:"",
     loading:false
 }
 
 const userreducer = (state=initialdata,{type,payload})=>{
+    // console.log(type,payload)
     switch(type){
       case types.FETCH_FOODDATA_REQUEST:{
             return{
-                ...state
+                ...state,
+                loading:true,
+
             }
         }
         case types.FETCH_FOODDATA_SUCCESS:{
             return{
-               ...state
+               ...state,
+               loading:false,
+               Food:payload
             }
         }
         case types.FETCH_FOODDATA_FAILED:{
             return{
-                ...state
+                ...state,
+                loading:false,
+                error:payload
             }
         }
-        case types.POST_USERDATA_REQUEST:{
+        case types.GET_USERDATA_REQUEST:{
             return{
-                ...state
+                ...state,
+                loading:true
             }
         }
-        case types.POST_USERDATA_SUCCESS:{
+        case types.GET_USERDATA_SUCCESS:{
+            // console.log(payload,"paylaod")
             return{
-                ...state
+                ...state,
+                UserfoodData:payload,
+                loading:false
             }
         }
-        case types.POST_USERDATA_FAILED:{
+        case types.GET_USERDATA_FAILED:{
             return{
-                ...state
+                ...state,
+                loading:false,
+                error:payload
             }
         }
         case types.DELETE_SINGLEDATA_REQUEST:{

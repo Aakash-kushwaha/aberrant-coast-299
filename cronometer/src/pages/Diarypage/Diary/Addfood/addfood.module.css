@@ -1,0 +1,28 @@
+.maincontainer{
+    display: flex;
+    margin: auto;
+    /* border:1px solid black; */
+    width:80%
+}
+
+.date{
+    width:350px;
+    border:1px solid blue;
+    
+}
+
+.container{
+    border:1px solid gray;
+    width: 710px;
+}
+
+.headernav{
+    display: flex;
+    /* width: 700px; */
+     background-color: whitesmoke;
+     justify-content: space-around;
+  
+}
+.headernav>div{
+    display: flex;
+}
