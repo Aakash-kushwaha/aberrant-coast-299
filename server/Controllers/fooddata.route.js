@@ -40,15 +40,16 @@ FoodController.post(
 );
 
 FoodController.get("/userdashboard", authentication, async (req, res) => {
-  // const { email } = req.body;
-  // const headersdate = req.headers.date;
-  // const date = headersdate.substr(1, headersdate.length - 2);
-  // console.log(date, email);
-  // const user = await UserModel.findOne({ email });
-  // const user_id = user._id;
-  // console.log(user_id);
-  // const user_dashboard_data = await UserFoodModel.find({ user_id, date });
-  // return res.send(user_dashboard_data);
+
+  const { email} = req.body;
+  const date = req.headers.authorization.split(" ")[0]
+  console.log(date,"date")
+  const user = await UserModel.findOne({ email });
+  const user_id = user._id;
+  const user_dashboard_data = await UserFoodModel.find({ user_id, date });
+
+  return res.send(user_dashboard_data);
+
 });
 
 module.exports = { FoodController };
