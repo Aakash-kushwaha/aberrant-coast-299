@@ -40,6 +40,7 @@ FoodController.post(
 );
 
 FoodController.get("/userdashboard", authentication, async (req, res) => {
+
   const { email} = req.body;
   const date = req.headers.authorization.split(" ")[0]
   console.log(date,"date")
@@ -48,6 +49,7 @@ FoodController.get("/userdashboard", authentication, async (req, res) => {
   const user_dashboard_data = await UserFoodModel.find({ user_id, date });
 
   return res.send(user_dashboard_data);
+
 });
 
 module.exports = { FoodController };
