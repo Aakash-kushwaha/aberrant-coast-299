@@ -5,7 +5,7 @@ import Highlightednutrients from './Highlightednutrients'
 
 
 const fakedata = new Array(2).fill(0)
-console.log(fakedata)
+// console.log(fakedata)
 
 
 const Highlighted_container = () => {
