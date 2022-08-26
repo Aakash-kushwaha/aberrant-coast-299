@@ -116,7 +116,9 @@ export const Support = () => {
       </Box>
 
        <Divider w={'80%'} m='auto' border={'2px solid'} />
-      <Box justify={"center"} align="center" p={2} w='80%'  m='30px auto'>
+      <Box justify={"center"} align="center" p={2} w='80%' 
+      m={{base:'30px auto',sm:'30px auto', md:'30px auto',lg:'30px auto'}} 
+      >
         <Text fontSize={25} color="gray.700">
           Recent activity
         </Text>
