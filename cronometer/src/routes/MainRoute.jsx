@@ -8,7 +8,6 @@ import Highlighted_container from '../pages/Diarypage/Diary/Highlighted_containe
 import Homepage from '../pages/homepage/Homepage';
 import Plans from '../pages/plans/Plans';
 import Settings from '../pages/settings/Settings';
-
 const MainRoute = () => {
   return (
     <div>
