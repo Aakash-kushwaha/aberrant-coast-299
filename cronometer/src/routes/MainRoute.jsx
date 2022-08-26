@@ -9,17 +9,25 @@ import Homepage from "../pages/homepage/Homepage";
 import Plans from "../pages/plans/Plans";
 import Settings from "../pages/settings/Settings";
 import Signup from "../pages/signup/Signup";
+import Footer from '../components/footer/Footer';
+import { Support } from '../pages/Support/Support';
+
+
+
 
 const MainRoute = () => {
   return (
     <div>
       <Routes>
+
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/plans" element={<Plans />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/signup" element={<Signup />} />
+
       </Routes>
+      <Footer/>
     </div>
   );
 };

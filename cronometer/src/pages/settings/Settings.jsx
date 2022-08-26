@@ -18,7 +18,7 @@ const Settings = () => {
     navigate("/");
   }
   return (
-    <Tabs variant='enclosed'>
+    <Tabs variant='enclosed' size='sm' align='center'>
   <TabList>
     <Tab>Account</Tab>
     <Tab>Profile+Targets</Tab>
