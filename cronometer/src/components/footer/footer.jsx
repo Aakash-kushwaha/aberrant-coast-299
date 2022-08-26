@@ -1,3 +1,4 @@
+
 import { Box, Flex,Image } from '@chakra-ui/react'
 import { RiFacebookCircleLine,RiInstagramLine } from "react-icons/ri";
 import { TiSocialTwitterCircular } from "react-icons/ti";
