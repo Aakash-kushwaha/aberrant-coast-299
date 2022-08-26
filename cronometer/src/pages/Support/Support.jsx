@@ -123,8 +123,8 @@ export const Support = () => {
         <Flex direction='column'  justify='center' align='center' p={4} >
           <Flex w={'90%'} p="10px 20px" justify="space-between" m='10px 0px' borderBottom={'1px solid gray'}>
             <VStack >
-              <Text float={'left'} >Pro Account Setting</Text>
-              <Text float={'left'} fontSize={12}>Pro-HIPPA</Text>
+              <Text textAlign={'left'} >Pro Account Setting</Text>
+              <Text textAlign={'left'} fontSize={12}>Pro-HIPPA</Text>
             </VStack>
             <HStack>
               <Text>Artical Created 2 days ago</Text>
