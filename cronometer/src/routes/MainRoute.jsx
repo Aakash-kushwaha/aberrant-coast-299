@@ -12,9 +12,6 @@ import Settings from '../pages/settings/Settings';
 const MainRoute = () => {
   return (
     <div>
-    <Addfood></Addfood>
-     {/* <Energysummaryprogressbar></Energysummaryprogressbar>
-     <Highlighted_container></Highlighted_container> */}
       <Routes>
         <Route path='/about' element={<About/>}  />
         <Route path='/' element={<Homepage/>}  />
