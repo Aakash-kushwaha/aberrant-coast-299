@@ -21,7 +21,7 @@ const Addfood = () => {
     const [curdate,setDate]= React.useState("")
   const foodData = useSelector((store) => store.userreducer.Food);
   const userFood = useSelector((store) => store.userreducer.UserfoodData)
-  // console.log(userFood,"addfood")
+  console.log(userFood,"addfood")
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -36,7 +36,10 @@ const Addfood = () => {
 
   return (
     <div className={styles.maincontainer}>
+
+
      <div className={styles.date} onChange={handeDate}>
+     
      <div style={{width:"40%",margin:"auto"}}>{curdate}</div>
      <div style={{border:"1px solid silver"}}>
      <div style={{width:"40%",margin:"auto"}}>

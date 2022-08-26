@@ -15,8 +15,10 @@ import {
   const FoodTable = ({userFood}) => {
     // console.log(userFood,"table")
     return (
-<TableContainer>
-  <Table colorScheme='teal' w={"700px"}>
+<TableContainer
+//  h={"400px"} overflowY="scroll"
+ >
+  <Table colorScheme='teal' w={"600px"}>
     <Thead>
       <Tr>
         <Th>Description</Th>
