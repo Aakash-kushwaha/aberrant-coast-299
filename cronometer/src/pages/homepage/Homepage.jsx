@@ -32,10 +32,10 @@ const Homepage = () => {
       <Box bg={"gray.50"} p={8}>
         <DiscoverThird />
       </Box>
-      <Box>
+      <Box m='50px auto'>
         <Healthy />
       </Box>
-      <Box bg={"gray.50"} p={16}>
+      <Box bg={"gray.50"} p={16} mt='30px'>
         <Flex
           direction="column"
           fontSize={30}
@@ -130,9 +130,10 @@ const FirstBox = () => {
   return (
     <>
       <Flex
+        direction={{ base: "column", sm: "column" ,lg:'row',md:'row'}}
         w={"80%"}
         m="auto"
-        h={"500px"}
+        h={{base:'fit-content',lg:'600px', md:"600px",sm:'fit-content'}}
         justify={"space-between"}
         pt={"3%"}
         pb="2%"
@@ -146,11 +147,11 @@ const FirstBox = () => {
           // border="1px solid red"
         >
           <Box>
-            <Heading fontSize={"50px"}>Eat smarter.</Heading>
-            <Heading fontSize={"50px"}>Live better.</Heading>
+            <Heading fontSize={{base:"15px",sm:"20px",lg:"50px",md:"50px"}}>Eat smarter.</Heading>
+            <Heading fontSize={{base:"15px",sm:"20px",lg:"50px",md:"50px"}}>Live better.</Heading>
           </Box>
           {/* <Box p={"6px 0px"}> */}
-          <Text lineHeight={"2.5rem"} fontSize={30}>
+          <Text lineHeight={"2.5rem"} fontSize={{base:30,sm:18,lg:30,md:30}}>
             Track your calories, exercise,
             {/* <br /> */}
             biometrics and health data.
@@ -158,7 +159,7 @@ const FirstBox = () => {
 
           <Stack>
             <Flex
-              h={"60px"}
+              h={{base:"30px",sm:"40px",lg:"60px",md:"60px"}}
               w={"40%"}
               bg="#ff763f"
               borderRadius={"6px"}
@@ -181,7 +182,8 @@ const FirstBox = () => {
         </Flex>
         <Stack flex={5}>
           <Image
-            h={"480px"}
+            h={{base:"300px",sm:"300px",lg:"480px",md:"480px"}}
+            m='auto'
             src="https://cdn1.cronometer.com/2021/landing/cronometer-hero-graphic.svg"
             alt="USE OUR MOBILE VERSION"
           />
@@ -194,8 +196,7 @@ const FirstBox = () => {
 function SecoundBox() {
   return (
     <>
-      <Stack
-        as={"flex"}
+      <VStack
         w={"70%"}
         m="50px auto"
         justify={"center"}
@@ -205,11 +206,11 @@ function SecoundBox() {
           <Text fontSize={"25px"}>As Seen On </Text>
         </Box>
         <Flex
-          h={"150px"}
+          h={{base:'fit-content',sm:'fit-content',md:'150px',lg:"150px"}}
           p={2}
-          direction="row"
+          direction={{base:'column',sm:'column',md:'row',lg:"row"}}
           justify="space-evenly"
-          gap={"2%"}
+          gap={{base:"3%",sm:'3%',md:'2%',lg:"2%"}}
         >
           <Box h={"100%"}>
             <Image
@@ -241,7 +242,7 @@ function SecoundBox() {
             {" "}
             Available on Web, iOS and Android
           </Text>
-          <Flex>
+          <Flex direction={{base:'column',sm:'column',md:'row',lg:"row"}} gap='20px'>
             <Box h={"50px"} w="200px" borderRadius={5}>
               <Image
                 w={"100%"}
@@ -258,7 +259,7 @@ function SecoundBox() {
             </Box>
           </Flex>
         </Box>
-      </Stack>
+      </VStack>
     </>
   );
 }
@@ -292,14 +293,15 @@ function DiscoverThird() {
           </Text>
         </Flex>
         <Flex
+           direction={{base:'column',sm:'column',md:'row',lg:'row'}}
           justify={"space-around"}
           gap="4%"
           p={4}
           textAlign="center"
-          border={"1px solid red"}
+          // border={"1px solid red"}
         >
-          <Flex
-            direction={"column"}
+          <VStack
+            
             gap="4%"
             align={"center"}
             justify="center"
@@ -315,9 +317,8 @@ function DiscoverThird() {
               Join the community to get tips and inspiration from other users on
               our forums and Facebook group.
             </Text>
-          </Flex>
-          <Flex
-            direction={"column"}
+          </VStack>
+          <VStack
             gap="4%"
             align={"center"}
             justify="center"
@@ -333,9 +334,8 @@ function DiscoverThird() {
               Be confident that the food you log has the correct nutrition data.
               We verify every food submission for accuracy.
             </Text>
-          </Flex>
-          <Flex
-            direction={"column"}
+          </VStack>
+          <VStack
             gap="4%"
             align={"center"}
             justify="center"
@@ -351,7 +351,7 @@ function DiscoverThird() {
               We take the security of our users' accounts seriously - we will
               never sell your account data to third parties.
             </Text>
-          </Flex>
+          </VStack>
         </Flex>
       </Flex>
     </>
@@ -361,7 +361,7 @@ function DiscoverThird() {
 function Healthy() {
   return (
     <>
-      <Box p={8}>
+      <Box p={8} >
         <Flex
           w={"90%"}
           direction="column"
@@ -379,14 +379,14 @@ function Healthy() {
           <Stack
             display="grid"
             gap="4%"
-            gridTemplateColumns={"repeat(3,1fr)"}
+            gridTemplateColumns={{base:"repeat(1,1fr)",sm:"repeat(2,1fr)",md:"repeat(3,1fr)",lg:"repeat(3,1fr)"}}
             textAlign="center"
             justify={"center"}
             align="center"
             p={"4%"}
             lineHeight="1.5rem"
           >
-            <Flex direction="column" justify="space-around" gap="3%" p={6}>
+            <VStack justify="space-around" gap="3%" p={6}>
               <Image
                 w={"50%"}
                 flex={2}
@@ -399,9 +399,9 @@ function Healthy() {
               <Text flex={1} fontSize="18px">
                 Log your meals and track all your macro and micronutrients.
               </Text>
-            </Flex>
+            </VStack>
 
-            <Flex direction="column" p={6}>
+            <VStack justify="space-around" gap="3%" p={6}>
               <Image
                 w={"50%"}
                 flex={2}
@@ -415,8 +415,8 @@ function Healthy() {
                 Plus, you can create custom foods, recipes, exercises and
                 biometrics!
               </Text>
-            </Flex>
-            <Flex direction="column" p={6}>
+            </VStack>
+            <VStack justify="space-around" gap="3%" p={6}>
               <Image
                 w={"50%"}
                 flex={2}
@@ -429,8 +429,8 @@ function Healthy() {
               <Text flex={1} fontSize="18px">
                 Learn how nutrients and biometrics correlate over time.
               </Text>
-            </Flex>
-            <Flex direction="column" p={6}>
+            </VStack>
+            <VStack justify="space-around" gap="3%" p={6}>
               <Image
                 w={"50%"}
                 flex={2}
@@ -443,8 +443,8 @@ function Healthy() {
               <Text flex={1} fontSize="18px">
                 Set weight, macro & nutrient targets to meet your goals.
               </Text>
-            </Flex>
-            <Flex direction="column" p={6}>
+            </VStack>
+            <VStack justify="space-around" gap="3%" p={6}>
               <Image
                 w={"50%"}
                 flex={2}
@@ -457,8 +457,8 @@ function Healthy() {
               <Text flex={1} fontSize="18px">
                 Track your intermittent fasts and see their effect over time.
               </Text>
-            </Flex>
-            <Flex direction="column" p={6}>
+            </VStack>
+            <VStack justify="space-around" gap="3%" p={6}>
               <Image
                 w={"50%"}
                 flex={2}
@@ -472,7 +472,7 @@ function Healthy() {
                 Whether you’re Keto, Vegan, or on one recommended by your
                 doctor.
               </Text>
-            </Flex>
+            </VStack>
           </Stack>
         </Flex>
       </Box>
@@ -493,7 +493,7 @@ const Proffessinol = () => {
         justify="center"
         align="center"
       >
-        <Box flex={5} border={"1px solid"}>
+        <Box flex={5}>
           <Image
             w={"70%"}
             m="auto"
