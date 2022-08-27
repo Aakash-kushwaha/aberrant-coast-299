@@ -27,7 +27,7 @@ const MainRoute = () => {
         {/* <Route path="/settings" element={<Settings />} /> */}
         <Route path="/signup" element={<Signup />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
