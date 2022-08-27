@@ -2,10 +2,10 @@
     display: flex;
     margin: auto;
     border:1px solid black;
-    width:100%;
-    gap:2rem;
-    /* height: 1200px; */
+    width:95%;
  
+    /* height: 1200px; */
+    justify-content:space-around ;
 }
 
 .date{

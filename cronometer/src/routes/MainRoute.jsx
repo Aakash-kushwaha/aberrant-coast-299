@@ -10,14 +10,15 @@ import Homepage from "../pages/homepage/Homepage";
 import Plans from "../pages/plans/Plans";
 import Settings from "../pages/settings/Settings";
 import Signup from "../pages/signup/Signup";
-import Footer from '../components/footer/Footer';
 import { Support } from '../pages/Support/Support';
+import Footer from "../components/footer/footer"
 
 
 
 const MainRoute = () => {
   return (
     <div>
+
       <Routes>
 
         <Route path="/about" element={<About />} />
@@ -27,7 +28,7 @@ const MainRoute = () => {
         <Route path="/signup" element={<Signup />} />
 
       </Routes>
-      <Footer/>
+      {/* <Footer></Footer> */}
     </div>
   );
 };

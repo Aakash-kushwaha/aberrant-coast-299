@@ -29,7 +29,7 @@ import {
     </Thead>
     <Tbody >
     
-     { userFood && userFood.map((el,index)=>{
+     { userFood && userFood.Food_data.map((el,index)=>{
       return <Tr key={index}>
       <Td>{el.Food.name}</Td>
       <Td>{"50g"}</Td>

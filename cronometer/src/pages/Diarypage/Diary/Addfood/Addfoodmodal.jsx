@@ -23,15 +23,15 @@ import {
   postUserData,
 } from "../../../../redux/User/action";
 
-function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
+function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handleClick}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [id,setId]= React.useState("")
   const [unitfood,setUnitfood] = React.useState()
 //  console.log(id,"id",unitfood,"unit")
-  //  console.log(foodData,"foodata")
+   console.log(foodData,"foodata")
   const dispatch = useDispatch();
-
+// console.log(handleClick,"handleclick")
   // console.log(foodData,'uselsector')
 
   const handleChange = (e) => {
@@ -40,10 +40,9 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
     dispatch(fetchFoodData({ foodsearch, tokenfromlocalstorage }));
   };
 
-  const handleClick = (id,unitfood) => {
-    console.log(id,unitfood)
-    dispatch(postUserData({ id, tokenfromlocalstorage, finaldate,unitfood }))
-    .then((res)=>dispatch(getUserFood({ tokenfromlocalstorage, finaldate })))
+  const sendData = (id,unitfood) => {
+   
+//  handleClick(id,unitfood)
     
   };
 
@@ -53,8 +52,8 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
 // console.log(unitfood,"foodunit")
   return (
     <>
-      <Button h={"20px"} onClick={onOpen}>
-        Open Modal
+      <Button h={"20px"} mt={".2rem"} onClick={onOpen}>
+        {name}
       </Button>
       <Modal
         finalFocusRef={finalRef}
@@ -95,11 +94,10 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
                 >
                   {foodData &&
                     foodData.map((el, index) => {
-                      return (
-                        <Box
+                      return ( 
+                        <Box key={index}
                          cursor={"pointer"}
                           border="1px solid silver"
-                          key={index}
                           onClick={() =>setId(el._id)}
                           _hover={{backgroundColor:"silver"}}
                         >
@@ -114,7 +112,7 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
       
           <Flex margin={"auto"} >
             <Input border={"1px solid black"} placeholder="amount / plate / unit / etc" onChange={handleInput}></Input>
-            <Button onClick={()=>handleClick(id,unitfood)}  width={"50px"} bg={"#FF763F"}>
+            <Button onClick={()=>sendData(id,unitfood)}  width={"50px"} bg={"#FF763F"}>
               Add
             </Button>
           </Flex>

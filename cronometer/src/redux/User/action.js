@@ -121,7 +121,41 @@ const getUserFood=({tokenfromlocalstorage,finaldate})=>(dispatch)=>{
 
 
 
+const fetchExerciseDataRequest =()=>{
+    return{
+        type:types.FETCH_EXERCISE_REQUEST
+    }
+}
 
+const fetchExerciseDataSuccess =(payload)=>{
+    return{
+        type:types.FETCH_EXERCISE_SUCCESS,
+        payload
+    }
+}
+
+const fetchExerciseDataFailed =(payload)=>{
+    console.log(payload,"exercise")
+    return{
+        type:types.FETCH_EXERCISE_FAILED,
+        payload
+    }
+}
+
+
+const fetchExerciseData=({foodsearch,tokenfromlocalstorage})=>(dispatch)=>{
+    dispatch(fetchExerciseDataRequest())
+    axios.get("http://localhost:8080/exercise",{
+        params:{
+          q:foodsearch
+        },
+        headers:{
+            Authorization:`Bearer ${tokenfromlocalstorage}`
+        }
+    })
+  .then((res)=>dispatch(fetchExerciseDataSuccess(res)))
+  .catch((err)=>dispatch(fetchExerciseDataFailed(err)))
+}
 
 
 
@@ -129,5 +163,6 @@ const getUserFood=({tokenfromlocalstorage,finaldate})=>(dispatch)=>{
 export {
     fetchFoodData,
     postUserData,
-    getUserFood
+    getUserFood,
+    fetchExerciseData
 }

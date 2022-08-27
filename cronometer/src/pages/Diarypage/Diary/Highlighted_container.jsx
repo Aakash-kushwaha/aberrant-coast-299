@@ -37,61 +37,14 @@ const Highlighted_container = ({userFood}) => {
         <div className={styles.general}>
           <h3>General</h3>
          {
-              
-         }
-        </div>
-        <div className={styles.general}>
-          <h3>Carbohydrates</h3>
-         {
-        userFood && userFood.map((el)=>{
-            return <div >
+            userFood && userFood.Food_data.map((el,index)=>{
+            return <div  key={index}>
              <Highlightednutrients 
-             vitamin={el.General}  value={50} unit={(el.Food.Carbohydrates.Carbs.unit)} barcolor={"green"} totalpercent={Number(el.Food.Carbohydrates.Carbs.val)} width={"100px"}>
+             vitamin={el.General} value={50} unit={(el.Food.Carbohydrates.Carbs.unit)} barcolor={"green"} totalpercent={Number(el.Food.Carbohydrates.Carbs.val)} width={"100px"}>
 
              </Highlightednutrients>
              </div>
-          })
-         }
-        </div>
-        <div className={styles.general}>
-          <h3>Lipids</h3>
-         {
-        userFood && userFood.map((el)=>{
-            return <div >
-             <Highlightednutrients 
-             vitamin={el.General}  value={50} unit={"kcal"} barcolor={"green"} totalpercent={30} width={"100px"}>
-
-             </Highlightednutrients>
-             </div>
-          })
-         }
-        </div>
-        <div className={styles.general}>
-          <h3>Protein</h3>
-         {
-        userFood && userFood.map((el)=>{
-            return <div >
-             <Highlightednutrients 
-             vitamin={el.General}  value={50} unit={"kcal"} barcolor={"green"} totalpercent={30} width={"100px"}>
-
-             </Highlightednutrients>
-             </div>
-          })
-         }
-        </div>
-       </div>
-       <div>
-       <div className={styles.general}>
-          <h3>vitamins</h3>
-         {
-        userFood && userFood.map((el)=>{
-            return <div >
-             <Highlightednutrients 
-             vitamin={el.General}  value={50} unit={"kcal"} barcolor={"green"} totalpercent={30} width={"100px"}>
-
-             </Highlightednutrients>
-             </div>
-          })
+          })    
          }
         </div>
         </div>
