@@ -1,7 +1,6 @@
 import React from 'react'
 import {Routes,Route} from 'react-router-dom';
 import { About } from '../pages/About/About';
-import Addfood from '../pages/Diarypage/Diary/Addfood/Addfood';
 import Energysummaryprogressbar from '../pages/Diarypage/Diary/Energysummaryprogressbar';
 import Highlighted_container from '../pages/Diarypage/Diary/Highlighted_container';
 

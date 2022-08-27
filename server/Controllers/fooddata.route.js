@@ -23,7 +23,7 @@ FoodController.post(
   authentication,
 
   async (req, res) => {
-    const { email, date } = req.body;
+    const { email, date,amount } = req.body;
     const { id } = req.params;
     const user = await UserModel.findOne({ email });
     const user_id = user._id;
@@ -33,6 +33,7 @@ FoodController.post(
       user_id,
       date,
       Food: food_data.Food,
+      amount
     });
     await userfood_data.save();
     return res.send({ foodadded: true, message: "food added success" });

@@ -16,9 +16,9 @@ import {
     // console.log(userFood,"table")
     return (
 <TableContainer
-//  h={"400px"} overflowY="scroll"
+
  >
-  <Table colorScheme='teal' w={"600px"}>
+  <Table colorScheme='teal'  >
     <Thead>
       <Tr>
         <Th>Description</Th>
@@ -33,8 +33,8 @@ import {
       return <Tr key={index}>
       <Td>{el.Food.name}</Td>
       <Td>{"50g"}</Td>
-        <Td isNumeric>1 unit</Td>
-        <Td isNumeric>{el.Food.Carbohydrates.Fiber.val}</Td>
+        <Td isNumeric>1</Td>
+        <Td isNumeric>{el.Food.General.Energy.val} {el.Food.General.Energy.unit}</Td>
       </Tr>
      })  }
 

@@ -12,7 +12,7 @@ import {
 const Circularprogressbar = ({heading,percentage,calories,unit}) => {
   return (
     <div>
-    <div style={{ width:120, height:120,margin:"auto"}}>
+    <div style={{ width:101, height:101,margin:"auto"}}>
     <CircularProgressbarWithChildren  value={percentage}   
   styles={buildStyles({
     // Rotation of path and trail, in number of turns (0-1)
