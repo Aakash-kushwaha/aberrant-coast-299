@@ -18,7 +18,7 @@ import { SupNav } from "./Comp/SupNav";
 export const Support = () => {
   return (
     <Box>
-      <SupNav />
+      {/* <SupNav /> */}
       <Flex
         mb="40px"
         justify="center"
