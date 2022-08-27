@@ -32,13 +32,13 @@ const Homepage = () => {
       <Box bg={"gray.50"} p={8}>
         <DiscoverThird />
       </Box>
-      <Box m='50px auto'>
+      <Box m={{base:'50px auto',md:'50px auto',lg:'50px auto'}}>
         <Healthy />
       </Box>
-      <Box bg={"gray.50"} p={16} mt='30px'>
+      <Box bg={"gray.50"} p={10} mt={{base:'30px',md:'20px',lg:'20px'}}>
         <Flex
           direction="column"
-          fontSize={30}
+          fontSize={{base:18,md:30,lg:30}}
           gap="30px"
           w="50%"
           justify="space-around"
@@ -71,7 +71,7 @@ const Homepage = () => {
           justify="center"
           align="center"
           textAlign="center"
-          fontSize={30}
+          fontSize={{base:20,md:30,lg:30}}
         >
           <Heading color="gray.600">Sync with Apps and Devices</Heading>
           <Text color="gray.600" lineHeight="1.8rem">
@@ -90,8 +90,8 @@ const Homepage = () => {
       <Box m={'30px auto'}>
         <Flex direction='column' m='auto' gap='45px' w={'80%'} justify='center' align='center' p={8} borderBottom={'1px solid gray'} >
           <VStack spacing={'2%'} >
-            <Heading color='gray.700'>We are Canadian</Heading>
-            <Text lineHeight={'2rem'} fontSize={25} fontWeight='medium' >
+            <Heading color='gray.700' fontSize={{base:22,md:30,lg:30}}>We are Canadian</Heading>
+            <Text lineHeight={'2rem'} fontSize={{base:16,md:25,lg:25}} fontWeight='medium' >
               Independently owned and operated by people who care about their
               users' nutrition.
             </Text>
@@ -99,7 +99,7 @@ const Homepage = () => {
           <Box>
             <Image w={'100%'} borderRadius='10px' src="https://cdn1.cronometer.com/2021/landing/cronometer-staff-2-p-1600.jpeg" />
           </Box>
-          <Text  lineHeight={'1.5rem'} textAlign='center' fontSize={18} fontWeight='medium'>
+          <Text  lineHeight={'1.5rem'} textAlign='center' fontSize={{base:14,md:28,lg:28}} fontWeight='medium'>
             Our headquarters are based in the idyllic mountain town of
             Revelstoke, BC, Canada. We are a team of over 25 professionals
             brought together by a love of nutrition, skiing, biking and the
@@ -112,8 +112,8 @@ const Homepage = () => {
       </Box>
 
       <Box>
-        <VStack p={4} spacing='5%' fontSize={25}>
-          <Text >
+        <VStack p={4} spacing='5%' fontSize={{base:16,md:25,lg:25}}>
+          <Text fontSize={{base:12,md:26,lg:26}}>
           Help us spread the good word about nutrition and become an affiliate.
           </Text>
           <Button p={4} colorScheme={'#ff763f'}  color={'#ff763f'} variant={'outline'}>Become an Affiliated</Button>
@@ -147,11 +147,11 @@ const FirstBox = () => {
           // border="1px solid red"
         >
           <Box>
-            <Heading fontSize={{base:"15px",sm:"20px",lg:"50px",md:"50px"}}>Eat smarter.</Heading>
-            <Heading fontSize={{base:"15px",sm:"20px",lg:"50px",md:"50px"}}>Live better.</Heading>
+            <Heading fontSize={{base:"20px",lg:"50px",md:"50px"}}>Eat smarter.</Heading>
+            <Heading fontSize={{base:"20px",lg:"50px",md:"50px"}}>Live better.</Heading>
           </Box>
           {/* <Box p={"6px 0px"}> */}
-          <Text lineHeight={"2.5rem"} fontSize={{base:30,sm:18,lg:30,md:30}}>
+          <Text lineHeight={"2.5rem"} fontSize={{base:18,sm:18,lg:30,md:30}}>
             Track your calories, exercise,
             {/* <br /> */}
             biometrics and health data.
@@ -173,7 +173,7 @@ const FirstBox = () => {
               <RouterLink to="#">Sign Up - It's Free! </RouterLink>
             </Flex>
             <Flex p={"1%"} w={"55%"} bg={"blue.500"} color="white">
-              <Text>
+              <Text fontSize={{base:12,md:16,lg:16}}>
                 Already have an account? <RouterLink to="#">Log in.</RouterLink>
               </Text>
             </Flex>
@@ -203,7 +203,7 @@ function SecoundBox() {
         align="center"
       >
         <Box>
-          <Text fontSize={"25px"}>As Seen On </Text>
+          <Text fontSize={{base:18,md:25,lg:25}}>As Seen On </Text>
         </Box>
         <Flex
           h={{base:'fit-content',sm:'fit-content',md:'150px',lg:"150px"}}
@@ -238,7 +238,7 @@ function SecoundBox() {
           </Box>
         </Flex>
         <Box>
-          <Text textAlign={"center"} fontSize={25} lineHeight={"2.2rem"}>
+          <Text textAlign={"center"} fontSize={{base:18,md:25,lg:25}} lineHeight={"2.2rem"}>
             {" "}
             Available on Web, iOS and Android
           </Text>
@@ -286,7 +286,7 @@ function DiscoverThird() {
           gap="20px"
         >
           <Heading>Discover your nutrition</Heading>
-          <Text fontSize={20}>
+          <Text fontSize={{base:16,md:20,lg:20}}>
             Cronometer encourages you to not just count your calories
             <br />
             but to focus on your nutrition as a whole.
@@ -312,8 +312,8 @@ function DiscoverThird() {
               h="70px"
               src="https://cdn1.cronometer.com/2021/landing/community-icon.svg"
             />
-            <Heading fontSize={20}>Over 5 million users</Heading>
-            <Text>
+            <Heading fontSize={{base:16,md:20,lg:20}}>Over 5 million users</Heading>
+            <Text fontSize={{base:12,md:16,lg:16}}>
               Join the community to get tips and inspiration from other users on
               our forums and Facebook group.
             </Text>
@@ -329,7 +329,7 @@ function DiscoverThird() {
               h="70px"
               src="https://cdn1.cronometer.com/2021/landing/nutrition-icon.svg"
             />
-            <Heading fontSize={20}>Accurate nutrition data</Heading>
+            <Heading fontSize={{base:16,md:20,lg:20}}>Accurate nutrition data</Heading>
             <Text>
               Be confident that the food you log has the correct nutrition data.
               We verify every food submission for accuracy.
@@ -346,8 +346,8 @@ function DiscoverThird() {
               h="70px"
               src="https://cdn1.cronometer.com/2021/landing/security-icon.svg"
             />
-            <Heading fontSize={20}>Data privacy & security</Heading>
-            <Text>
+            <Heading fontSize={{base:16,md:20,lg:20}}>Data privacy & security</Heading>
+            <Text fontSize={{base:12,md:16,lg:16}}>
               We take the security of our users' accounts seriously - we will
               never sell your account data to third parties.
             </Text>
@@ -361,24 +361,26 @@ function DiscoverThird() {
 function Healthy() {
   return (
     <>
-      <Box p={8} >
+      <Box p={8}
+      //  mb={{base:50,md:40,lg:40}} 
+       >
         <Flex
           w={"90%"}
           direction="column"
           justify="center"
           align="center"
-          m="auto"
+          m="20px auto"
         >
           <Box w={"50%"} textAlign="center" lineHeight="2rem">
             <Heading color="gray.600">Develop healthy habits</Heading>
-            <Text fontSize={22}>
+            <Text fontSize={{base:18,md:22,lg:22}}>
               Count your calories, ensure you're meeting nutrient targets, and
               see your progress over time.
             </Text>
           </Box>
           <Stack
             display="grid"
-            gap="4%"
+            gap={{base:'2%',md:"4%",lg:'4%'}}
             gridTemplateColumns={{base:"repeat(1,1fr)",sm:"repeat(2,1fr)",md:"repeat(3,1fr)",lg:"repeat(3,1fr)"}}
             textAlign="center"
             justify={"center"}
@@ -393,10 +395,10 @@ function Healthy() {
                 m="auto"
                 src="https://cdn1.cronometer.com/2021/landing/micronutrients-icon.svg"
               />
-              <Heading flex={1} fontSize="20px" color="gray.700">
+              <Heading flex={1} fontSize={{base:16,md:20,lg:20}} color="gray.700">
                 Track up to 82 micronutrients
               </Heading>
-              <Text flex={1} fontSize="18px">
+              <Text flex={1} fontSize={{base:14,md:18,lg:18}}>
                 Log your meals and track all your macro and micronutrients.
               </Text>
             </VStack>
@@ -408,10 +410,10 @@ function Healthy() {
                 m="auto"
                 src="https://cdn1.cronometer.com/2021/landing/diary-icon.svg"
               />
-              <Heading flex={1} fontSize="20px" color="gray.700">
+              <Heading flex={1} fontSize={{base:16,md:20,lg:20}} color="gray.700">
                 Log meals, exercise and biometrics
               </Heading>
-              <Text flex={1} fontSize="18px">
+              <Text flex={1} fontSize={{base:14,md:18,lg:18}}>
                 Plus, you can create custom foods, recipes, exercises and
                 biometrics!
               </Text>
@@ -423,10 +425,10 @@ function Healthy() {
                 m="auto"
                 src="	https://cdn1.cronometer.com/2021/landing/reports-icon.svg"
               />
-              <Heading flex={1} fontSize="20px" color="gray.700">
+              <Heading flex={1} fontSize={{base:16,md:20,lg:20}} color="gray.700">
                 Valuable reports and charts
               </Heading>
-              <Text flex={1} fontSize="18px">
+              <Text flex={1} fontSize={{base:14,md:18,lg:18}}>
                 Learn how nutrients and biometrics correlate over time.
               </Text>
             </VStack>
@@ -437,10 +439,10 @@ function Healthy() {
                 m="auto"
                 src="https://cdn1.cronometer.com/2021/landing/scale-icon.svg"
               />
-              <Heading flex={1} fontSize="20px" color="gray.700">
+              <Heading flex={1} fontSize={{base:16,md:20,lg:20}} color="gray.700">
                 Custom Diet Setting
               </Heading>
-              <Text flex={1} fontSize="18px">
+              <Text flex={1} fontSize={{base:14,md:18,lg:18}}>
                 Set weight, macro & nutrient targets to meet your goals.
               </Text>
             </VStack>
@@ -451,10 +453,10 @@ function Healthy() {
                 m="auto"
                 src="	https://cdn1.cronometer.com/2021/landing/fasting-icon.svg"
               />
-              <Heading flex={1} fontSize="20px" color="gray.700">
+              <Heading flex={1} fontSize={{base:14,md:18,lg:20}} color="gray.700">
                 Fasting Timer
               </Heading>
-              <Text flex={1} fontSize="18px">
+              <Text flex={1} fontSize={{base:14,md:18,lg:18}}>
                 Track your intermittent fasts and see their effect over time.
               </Text>
             </VStack>
@@ -465,10 +467,10 @@ function Healthy() {
                 m="auto"
                 src="https://cdn1.cronometer.com/2021/landing/food-icon.svg"
               />
-              <Heading flex={1} fontSize="20px" color="gray.700">
+              <Heading flex={1} fontSize={{base:16,md:20,lg:20}} color="gray.700">
                 Diet support
               </Heading>
-              <Text flex={1} fontSize="18px">
+              <Text flex={1} fontSize={{base:14,md:18,lg:18}}>
                 Whether you’re Keto, Vegan, or on one recommended by your
                 doctor.
               </Text>
@@ -506,10 +508,10 @@ const Proffessinol = () => {
             src="https://cdn1.cronometer.com/2021/landing/cronometer-pro-logo.svg"
           />
           <VStack textAlign={"left"}>
-            <Heading fontSize={"20px"}>
+            <Heading fontSize={{base:'16px',md:'20px',lg:"20px"}}>
               Are you a healthcare professional?
             </Heading>
-            <Text fontSize={25} lineHeight={"1.7rem"}>
+            <Text fontSize={{base:18,md:25,lg:25}} lineHeight={"1.7rem"}>
               {" "}
               Check out our software designed for nutritionists, dietitians,
               research teams, schools, and hospitals.

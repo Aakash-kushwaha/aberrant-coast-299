@@ -4,16 +4,26 @@
   font-weight: 400;
 }
 
+
 .heading2 {
   font-size: 22px;
   font-weight: 600;
 }
-.heading3 {
-  font-size: 16px;
-  font-weight: 600;
+.container{
+    padding:20px 100px;
+
 }
+
+
 .text {
   font-size: 14px;
+
+}
+.heading3{
+font-size: 16px;
+font-weight: 600;
+text-align: justify;
+
 }
 .smalltext {
   font-size: 12px;

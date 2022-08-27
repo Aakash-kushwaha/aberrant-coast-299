@@ -7,6 +7,11 @@
 .heading1 {
   font-size: 26px;
   font-weight: 700;
+  }
+
+.container{
+    padding:20px 100px;
+
 }
 .heading2 {
   font-size: 22px;
