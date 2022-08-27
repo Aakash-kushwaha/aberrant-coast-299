@@ -12,12 +12,15 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { Community } from "./comp/Community";
+import { NewArr } from "./comp/NewArr";
 import { Popular } from "./comp/Popular";
+import { FirstBox1 } from "./comp/FirstBox";
 
 export const Blog = () => {
   return (
     <Box>
-      <Box>
+      <Box mt={10}>
         <FirstBox />
       </Box>
       <Box w="full" bg="gray.50" m="30px auto">
@@ -62,8 +65,17 @@ export const Blog = () => {
         </Flex>
       </Box>
 
-      <Box w='full' m={'50px auto'} p={2}>
+      <Box w='full' m={'80px auto'} p={2}>
         <Popular/>
+      </Box>
+      <Box w={'full'} m={'40px auto'} mb={{base:'80px',md:'40px',lg:'40px'}} p={2}>
+        <NewArr/>
+      </Box>
+      <Box w={'full'} m={'40px auto'} mb={{base:'80px',md:'40px',lg:'40px'}} p={2}>
+        <Community/>
+      </Box>
+      <Box w={'full'} m={'40px auto'} mb={{base:'80px',md:'40px',lg:'40px'}} p={2}>
+        <FirstBox1/>
       </Box>
     </Box>
   );
@@ -74,6 +86,7 @@ const FirstBox = () => {
     <>
       <VStack align="center" justify="center">
         <Box
+          
           textAlign="center"
           lineHeight={"4rem"}
           color="#fff"
@@ -83,6 +96,7 @@ const FirstBox = () => {
           transition={`background .3s,border .3s,border-radius .3s,box-shadow .3s`}
           backgroundImage={`linear-gradient(80deg,#ff763f 0%,#ffb56b 100%)`}
           backgroundColor="transparent"
+          borderBottomRadius={'40%'}
         >
           <Heading fontSize={45}>The Cronometer Blog</Heading>
           <Text fontSize={30}>App Updates, Nutrition Tips & Inspiration</Text>
