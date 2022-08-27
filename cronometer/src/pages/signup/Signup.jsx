@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Heading,
@@ -10,6 +10,9 @@ import {
   Select,
   Button,
 } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { SignupHandler } from "../../redux/Auth/action";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,9 +24,12 @@ const Signup = () => {
   const [hfit, setHfit] = useState("");
   const [hinch, setHinch] = useState("");
   const [weight, setWeight] = useState("");
-
+  const [passcheck, setPasscheck] = useState(true);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const signup = useSelector((store) => store.authreducer.signup);
   const HandleSignup = () => {
-    let signup_obj = {
+    let user_data = {
       email,
       password,
       sex,
@@ -31,15 +37,24 @@ const Signup = () => {
       height: `${hfit}ft${hinch}inch`,
       weight: `${weight}kg`,
     };
-    console.log(signup_obj);
+    if (password === confirmpass) {
+      dispatch(SignupHandler(user_data));
+    } else {
+      setPasscheck(false);
+    }
   };
+
+  useEffect(() => {
+    if (signup === true) {
+      navigate("/login");
+    }
+  }, [signup]);
+
   return (
-    <Box margin="0">
+    <Box margin="0" mb="100px">
       <Box
         h={"80px"}
-        w={"119%"}
-        marginTop="-18px"
-        marginLeft="-99px"
+        w={"100%"}
         backgroundColor={"#FEFFFF"}
         display={"flex"}
         justifyContent="center"
@@ -68,6 +83,7 @@ const Signup = () => {
             placeholder="Email Address"
             border={"2px solid black"}
             marginBottom="5px"
+            required
             onChange={(e) => setEmail(e.target.value)}
           ></Input>
           <Input
@@ -75,6 +91,7 @@ const Signup = () => {
             placeholder="Password"
             border={"2px solid black"}
             marginBottom="5px"
+            required
             onChange={(e) => setPassword(e.target.value)}
           ></Input>
           <Input
@@ -82,8 +99,14 @@ const Signup = () => {
             placeholder="Confirm Password"
             border={"2px solid black"}
             marginBottom="5px"
+            required
             onChange={(e) => setConfirmPass(e.target.value)}
           ></Input>
+          {passcheck == false && (
+            <p style={{ color: "red" }}>
+              Make sure passwords entered are the same
+            </p>
+          )}
         </Box>
       </Box>
       <Box
@@ -98,7 +121,13 @@ const Signup = () => {
           <Heading fontSize={"1.1rem"} textAlign="center">
             Your Body Type
           </Heading>
-          <Box display="flex" w="60%" margin="auto" marginTop={"10px"}>
+          <Box
+            display="flex"
+            w="70%"
+            margin="auto"
+            textAlign={"left"}
+            marginTop={"10px"}
+          >
             {" "}
             Sex:
             <RadioGroup value={sex} marginLeft={"10px"} onChange={setSex}>
@@ -108,12 +137,19 @@ const Signup = () => {
               </Stack>
             </RadioGroup>
           </Box>
-          <Box display="flex" w="60%" margin="auto" marginTop={"10px"}>
+          <Box
+            display="flex"
+            w="70%"
+            margin="auto"
+            marginTop={"10px"}
+            textAlign={"left"}
+          >
             Born:
             <Select
-              w="58px"
+              w="78px"
               h="25px"
               border={"2px solid black"}
+              ml="5px"
               onChange={(e) => setDay(e.target.value)}
             >
               <option value="1">1</option>
@@ -152,6 +188,7 @@ const Signup = () => {
               w="108px"
               h="25px"
               border={"2px solid black"}
+              ml="5px"
               onChange={(e) => setMonth(e.target.value)}
             >
               {" "}
@@ -172,15 +209,18 @@ const Signup = () => {
               type="number"
               placeholder="year"
               h="25px"
+              w="23%"
+              ml="5px"
               onChange={(e) => setYear(e.target.value)}
             ></Input>
           </Box>
-          <Box display="flex" w="60%" margin="auto" marginTop={"10px"}>
+          <Box display="flex" w="70%" margin="auto" marginTop={"10px"}>
             Height:
             <Select
-              w="58px"
+              w="68px"
               h="25px"
               border={"2px solid black"}
+              ml="5px"
               onChange={(e) => setHfit(e.target.value)}
             >
               <option value="1">1</option>
@@ -194,9 +234,10 @@ const Signup = () => {
             </Select>{" "}
             '{" "}
             <Select
-              w="58px"
+              w="78px"
               h="25px"
               border={"2px solid black"}
+              ml="5px"
               onChange={(e) => setHinch(e.target.value)}
             >
               <option value="1">1</option>
@@ -213,13 +254,14 @@ const Signup = () => {
             </Select>{" "}
             "{" "}
           </Box>
-          <Box display="flex" w="60%" margin="auto" marginTop={"10px"}>
+          <Box display="flex" w="70%" ml="5px" margin="auto" marginTop={"10px"}>
             Weight:
             <Input
               type="number"
               placeholder="weight"
               w="30%"
               h="25px"
+              ml="5px"
               onChange={(e) => setWeight(e.target.value)}
             ></Input>{" "}
             kg

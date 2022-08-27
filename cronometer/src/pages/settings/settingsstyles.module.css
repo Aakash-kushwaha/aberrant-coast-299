@@ -1,23 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-*{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+* {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 }
-body{
-    padding:20px 100px;
+
+.heading2 {
+  font-size: 22px;
+  font-weight: 600;
 }
-.heading2{
-font-size: 22px;
-font-weight: 600;
+.heading3 {
+  font-size: 16px;
+  font-weight: 600;
 }
-.heading3{
-font-size: 16px;
-font-weight: 600;
+.text {
+  font-size: 14px;
 }
-.text{
-font-size: 14px;
-}
-.smalltext{
-    font-size: 12px;
-    color: #5c5c5c;
+.smalltext {
+  font-size: 12px;
+  color: #5c5c5c;
 }
