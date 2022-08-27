@@ -7,11 +7,12 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import {Link as RouterLink} from 'react-router-dom';
+import {Link as RouterLink, useNavigate} from 'react-router-dom';
 
 
 
 const Navbar = () => {
+  const navigate= useNavigate();
   return (
     <>
       <Box
@@ -21,7 +22,7 @@ const Navbar = () => {
         height="fit-content"
         m="2% auto"
         pb={"2%"}
-        borderBottom={"1px solid gray"}
+        borderBottom={"2px solid gray.300"}
       >
         <Flex
           w={"95%"}      
@@ -34,10 +35,13 @@ const Navbar = () => {
           flex={5}
           //  border={"1px solid red"}
            >
+            <RouterLink to='/'>
             <Image
+            // onClick={()=>navigate('/')}
               w={"40%"}
               src="https://cdn1.cronometer.com/2021/landing/cronometer-logo.svg"
             />
+            </RouterLink>
           </Box>
           <Flex 
           flex={5}
@@ -75,12 +79,13 @@ const Navbar = () => {
               </Menu>
             </Box>
             <Box _hover={{color:'#ff763f'}}>
-              <RouterLink to='/'>Support</RouterLink>
+              <RouterLink to='/support'>Support</RouterLink>
             </Box>
-            <Box _hover={{color:'#ff763f'}}>  <RouterLink to='/' >Blogs</RouterLink></Box>
+            <Box _hover={{color:'#ff763f'}}>  <RouterLink to='/blog' >Blogs</RouterLink></Box>
             <Box _hover={{color:'#ff763f'}}>  <RouterLink to='/' >Foroms</RouterLink></Box>
-            <Box _hover={{color:'#ff763f'}}>  <RouterLink to='/' >About</RouterLink></Box>
+            <Box _hover={{color:'#ff763f'}}>  <RouterLink to='/about' >About</RouterLink></Box>
             <Box>
+              <RouterLink to='/signup'>
             <Button          
              lineHeight='1.2'
              transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
@@ -102,9 +107,11 @@ const Navbar = () => {
                boxShadow:
                  '0 0 1px 2px rgba(255, 118, 63, .75), 0 1px 1px rgba(0, 0, 0, .15)',
              }}
+             
             >
              SignUp
             </Button>
+            </RouterLink>
             </Box>
           </Flex>
         </Flex>
