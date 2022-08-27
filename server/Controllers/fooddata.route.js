@@ -36,6 +36,7 @@ FoodController.post(
       date,
       amount,
       Food: food_data.Food,
+      amount
     });
     await userfood_data.save();
     return res.send({ foodadded: true, message: "food added success" });

@@ -25,7 +25,7 @@ import { Heading,Stack,Box,Image,
     );
   }
 const Plans = () => {
-  return (<>
+  return (<div className={styles.container}>
     <Box textAlign='left'>
       <h1 className={styles.heading2}>Plans</h1>
       <p className={styles.text}>Check out our range of affordable plans for individuals or for healthcare professionals.</p>
@@ -316,7 +316,7 @@ If you purchased gold on the Android mobile app:</Heading>
 
 </Accordion>
 
-    </>
+    </div>
   )
 }
 

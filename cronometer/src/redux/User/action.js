@@ -60,17 +60,18 @@ const postFoodDataFailed =(payload)=>{
 }
 
 
-const postUserData=({id,tokenfromlocalstorage,finaldate})=>(dispatch)=>{
-    // console.log(date,"date")
+const postUserData=({id,tokenfromlocalstorage,finaldate,unitfood})=>(dispatch)=>{
+    // console.log(unitfood,"date")
     dispatch(postFoodDataRequest())
-    axios({
+   return axios({
         method: 'post',
         url: `http://localhost:8080/food/${id}`,
         headers:{
           Authorization:`Bearer ${tokenfromlocalstorage}`
         },
         data:{
-          date:finaldate
+          date:finaldate,
+          amount:unitfood
         }
       })
   .then((res)=>dispatch(postFoodDataSuccess(res.data)))
@@ -105,7 +106,7 @@ const getUserFoodFailed =(payload)=>{
 
 
 const getUserFood=({tokenfromlocalstorage,finaldate})=>(dispatch)=>{
-    // console.log(finaldate,"date")
+    // console.log(tokenfromlocalstorage,"date", finaldate)
     dispatch(getUserFoodRequest())
     axios({
         method: 'get',
