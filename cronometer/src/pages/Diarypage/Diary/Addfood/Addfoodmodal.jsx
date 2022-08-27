@@ -29,10 +29,10 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handle
   const [id,setId]= React.useState("")
   const [unitfood,setUnitfood] = React.useState()
 //  console.log(id,"id",unitfood,"unit")
-   console.log(foodData,"foodata")
+  //  console.log(foodData,"foodata")
   const dispatch = useDispatch();
 // console.log(handleClick,"handleclick")
-  // console.log(foodData,'uselsector')
+//  foodData && foodData.length>0 && console.log(foodData,'uselsector')
 
   const handleChange = (e) => {
     let foodsearch = e.target.value;
@@ -42,7 +42,7 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handle
 
   const sendData = (id,unitfood) => {
    
-//  handleClick(id,unitfood)
+ handleClick(id,unitfood)
     
   };
 
@@ -92,7 +92,7 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handle
                    height={"200px"}
                   style={{ overflow: "scroll", overflowX: "hidden" }}
                 >
-                  {foodData &&
+                  {foodData && foodData.length>0 &&
                     foodData.map((el, index) => {
                       return ( 
                         <Box key={index}
@@ -101,7 +101,7 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handle
                           onClick={() =>setId(el._id)}
                           _hover={{backgroundColor:"silver"}}
                         >
-                          {el.Food.name}
+                          {el.Food?el.Food.name :el.Exercise?el.Exercise.name:""}
                         </Box>
                       );
                     })}

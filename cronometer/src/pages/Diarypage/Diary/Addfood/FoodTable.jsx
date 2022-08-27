@@ -32,9 +32,18 @@ import {
      { userFood && userFood.Food_data.map((el,index)=>{
       return <Tr key={index}>
       <Td>{el.Food.name}</Td>
-      <Td>{"50g"}</Td>
-        <Td isNumeric>1</Td>
-        <Td isNumeric>{el.Food.General.Energy.val} {el.Food.General.Energy.unit}</Td>
+      <Td>{el.amount}</Td>
+        <Td isNumeric>1 unit</Td>
+        <Td isNumeric>{el.Food.General.Energy.val} </Td>
+      </Tr>
+     })  }
+
+     { userFood && userFood.Exercise_data.map((el,index)=>{
+      return <Tr key={index}>
+      <Td>{el.Exercise.name}</Td>
+      <Td>{el.Exercise.amount.val}</Td>
+        <Td isNumeric>{el.Exercise.amount.unit}</Td>
+        <Td isNumeric>{el.Exercise.Energy} </Td>
       </Tr>
      })  }
 

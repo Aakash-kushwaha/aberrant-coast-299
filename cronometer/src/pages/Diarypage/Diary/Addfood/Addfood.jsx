@@ -4,7 +4,7 @@ import { appleimg, exercise, biometric, notes } from "./img";
 import FoodTable from "./FoodTable";
 import Addfoodmodal from "./Addfoodmodal";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchExerciseData, fetchFoodData, getUserFood, postUserData } from "../../../../redux/User/action";
+import { fetchExerciseData, fetchFoodData, getUserFood, postExerciseData, postUserData } from "../../../../redux/User/action";
 import { Box, Input } from "@chakra-ui/react";
 import Energysummaryprogressbar from "../Energysummaryprogressbar";
 import Highlighted_container from "../Highlighted_container";
@@ -32,12 +32,11 @@ const Addfood = () => {
   let tokenfromlocalstorage =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrQGdtYWlsLmNvbSIsImlhdCI6MTY2MTU5MDUyMCwiZXhwIjoxNjYxNzYzMzIwfQ.7IjBXldF6GgdwkPXCXudHlQWPThgCULvTAq55HHR2Z0";
 
-
+   const [exser,setExer]= React.useState([])
   const foodData = useSelector((store) => store.userreducer.Food);
   const userFood = useSelector((store) => store.userreducer.UserfoodData);
   const Exercise = useSelector((store)=>store.userreducer.exerciseData)
 
-  Exercise && console.log(Exercise.data)
   
   const dispatch = useDispatch();
 
@@ -50,9 +49,15 @@ const Addfood = () => {
 
   React.useEffect(()=>{
    finaldate && dispatch(getUserFood({ tokenfromlocalstorage,finaldate}))
+
   },[finaldate])
 
-  // console.log(finaldate,"date bhar")
+  React.useEffect(()=>{
+    
+    Exercise && setExer(Exercise.data)
+   },[Exercise])
+
+  // console.log(exser,"date bhar")
   const DatewiseData=(e)=>{
     
     setDate(e.target.value)
@@ -62,9 +67,16 @@ const Addfood = () => {
   }
 
   const handleClick=(id,unitfood) =>{
-    console.log(id,unitfood,"id food")
+    // console.log(id,unitfood,"id food")
     dispatch(postUserData({ id, tokenfromlocalstorage, finaldate,unitfood }))
     .then((res)=>dispatch(getUserFood({ tokenfromlocalstorage, finaldate })))
+    
+  };
+
+  const sendExercise=(id,unitfood) =>{
+    // console.log(id,unitfood,"id food")
+    dispatch(postExerciseData({ id, tokenfromlocalstorage, finaldate }))
+    .then((res)=>dispatch(fetchExerciseData({ tokenfromlocalstorage, finaldate })))
     
   };
 
@@ -79,7 +91,7 @@ const Addfood = () => {
         </Box>
       </div>
 
-      <Box border="2px solid blue">
+      <Box >
         <div className={styles.headernav}>
           <div>
             <img src={appleimg}></img>
@@ -95,9 +107,10 @@ const Addfood = () => {
             <img src={exercise}></img>
             <Addfoodmodal
               tokenfromlocalstorage={tokenfromlocalstorage}
-              foodData={Exercise.data}
+              foodData={exser}
               finaldate={finaldate}
               name={"ADD EXERCISE"}
+              handleClick={sendExercise}
             ></Addfoodmodal>
           </div>
           <div>
@@ -112,8 +125,8 @@ const Addfood = () => {
         <div className={styles.container}>
           <FoodTable userFood={userFood}></FoodTable>
         </div>
-        {/* <Energysummaryprogressbar></Energysummaryprogressbar>
-        <Highlighted_container  userFood={userFood}></Highlighted_container> */}
+        <Energysummaryprogressbar {...userFood}></Energysummaryprogressbar>
+        <Highlighted_container  userFood={userFood}></Highlighted_container>
       </Box>
     </div>
   );
