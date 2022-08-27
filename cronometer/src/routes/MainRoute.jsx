@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { About } from "../pages/About/About";
@@ -11,7 +12,6 @@ import Settings from "../pages/settings/Settings";
 import Signup from "../pages/signup/Signup";
 import Footer from '../components/footer/Footer';
 import { Support } from '../pages/Support/Support';
-
 
 
 
