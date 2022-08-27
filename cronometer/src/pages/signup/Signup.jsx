@@ -10,6 +10,7 @@ import {
   Select,
   Button,
 } from "@chakra-ui/react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SignupHandler } from "../../redux/Auth/action";
@@ -29,18 +30,33 @@ const Signup = () => {
   const navigate = useNavigate();
   const signup = useSelector((store) => store.authreducer.signup);
   const HandleSignup = () => {
-    let user_data = {
-      email,
-      password,
-      sex,
-      born: `${year}-${month}-${day}`,
-      height: `${hfit}ft${hinch}inch`,
-      weight: `${weight}kg`,
-    };
-    if (password === confirmpass) {
-      dispatch(SignupHandler(user_data));
+    if (
+      email.length === 0 ||
+      password.length === 0 ||
+      confirmpass.length === 0 ||
+      sex.length === 0 ||
+      year.length === 0 ||
+      month.length === 0 ||
+      day.length === 0 ||
+      hfit.length === 0 ||
+      hinch.length === 0 ||
+      weight.length === 0
+    ) {
+      alert("Please Enter All Required Information");
     } else {
-      setPasscheck(false);
+      let user_data = {
+        email,
+        password,
+        sex,
+        born: `${year}-${month}-${day}`,
+        height: `${hfit}ft${hinch}inch`,
+        weight: `${weight}kg`,
+      };
+      if (password === confirmpass) {
+        dispatch(SignupHandler(user_data));
+      } else {
+        setPasscheck(false);
+      }
     }
   };
 

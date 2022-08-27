@@ -53,9 +53,8 @@ FoodController.get("/userdashboard", authentication, async (req, res) => {
     user_id,
     date,
   });
-  
+
   const Total = TotalSum(user_dashboardFood_data, user_dashboardExercise_data);
-  console.log(Total)
   return res.send({
     Food_data: user_dashboardFood_data,
     Exercise_data: user_dashboardExercise_data,
