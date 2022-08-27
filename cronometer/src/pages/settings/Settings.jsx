@@ -17,7 +17,7 @@ const Settings = () => {
   const handleDeleteAccount=()=>{
     navigate("/");
   }
-  return (
+  return (<div className={styles.container}>
     <Tabs variant='enclosed' size='sm' align='center'>
   <TabList>
     <Tab>Account</Tab>
@@ -110,12 +110,12 @@ const Settings = () => {
       <VStack spacing={'4'} margin='30px' className={styles.text}>
       <Flex gap='50px'>
       <BsFillCloudArrowDownFill size='1.5em' color='#999999'/>
-      <p style={{width:'400px'}}><span style={{fontWeight:'600'}}>Export Data </span><br/>Export all of your diary data to .csv files</p>
+      <p style={{width:'400px'}}><span style={{fontWeight:'600',textAlign:'justify'}}>Export Data </span><br/>Export all of your diary data to .csv files</p>
       <Button size='sm' colorScheme={'orange'} variant='ghost'>Export Data</Button>
       </Flex>
       <Flex gap='40px'>
       <RiDeleteBin2Fill size='1.5em'color='#999999'/>
-      <p style={{width:'400px'}}><span style={{fontWeight:'600'}}>Delete Account</span> <br/>Permanently delete your account and all of your data.</p>
+      <p style={{width:'400px'}}><span style={{fontWeight:'600',textAlign:'justify'}}>Delete Account</span> <br/>Permanently delete your account and all of your data.</p>
       <Button colorScheme={'orange'} variant='outline' size='sm' onClick={handleDeleteAccount}>Delete Account</Button>
       </Flex>
       </VStack>
@@ -127,7 +127,7 @@ const Settings = () => {
     </TabPanel>
   </TabPanels>
 </Tabs>
-  )
+  </div>)
 }
 
 export default Settings

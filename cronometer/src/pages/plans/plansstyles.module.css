@@ -3,7 +3,7 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
-body{
+.container{
     padding:20px 100px;
 }
 .heading1{
