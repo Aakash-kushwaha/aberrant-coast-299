@@ -3,7 +3,7 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
-body{
+.container{
     padding:20px 100px;
 }
 .heading2{
@@ -13,6 +13,7 @@ font-weight: 600;
 .heading3{
 font-size: 16px;
 font-weight: 600;
+text-align: justify;
 }
 .text{
 font-size: 14px;
