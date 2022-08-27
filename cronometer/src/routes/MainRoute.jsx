@@ -8,29 +8,26 @@ import { About } from "../pages/About/About";
 import Homepage from "../pages/homepage/Homepage";
 // import Plans from "../pages/plans/Plans";
 // import Settings from "../pages/settings/Settings";
-// import Signup from "../pages/signup/Signup";
-import Footer from '../components/footer/Footer';
-import { Support } from '../pages/Support/Support';
+import Signup from "../pages/signup/Signup";
+import Footer from "../components/footer/Footer";
+import { Support } from "../pages/Support/Support";
 import { Blog } from "../pages/Blogs/Blog";
-
-
-
+import Navbar from "../components/header/Navbar";
 
 const MainRoute = () => {
   return (
     <div>
+      <Navbar />
       <Routes>
-
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/support" element={<Support />} />
         <Route path="/blog" element={<Blog />} />
         {/* <Route path="/plans" element={<Plans />} /> */}
         {/* <Route path="/settings" element={<Settings />} /> */}
-        {/* <Route path="/signup" element={<Signup />} /> */}
-
+        <Route path="/signup" element={<Signup />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
