@@ -10,7 +10,7 @@ const Highlightednutrients = ({
   totalpercent,
   width,
 }) => {
-  console.log(vitamin, "vit");
+  // console.log(vitamin, "vit");
   return (
     <>
     <div styles={styles.container}>

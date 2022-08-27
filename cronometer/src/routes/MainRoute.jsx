@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { About } from "../pages/About/About";
@@ -14,6 +15,9 @@ import { Support } from "../pages/Support/Support";
 import { Blog } from "../pages/Blogs/Blog";
 import Navbar from "../components/header/Navbar";
 
+import Login from "../pages/Login/Login";
+
+
 const MainRoute = () => {
   return (
     <div>
@@ -26,8 +30,10 @@ const MainRoute = () => {
         {/* <Route path="/plans" element={<Plans />} /> */}
         {/* <Route path="/settings" element={<Settings />} /> */}
         <Route path="/signup" element={<Signup />} />
+
+        <Route path="/login" element={<Login />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

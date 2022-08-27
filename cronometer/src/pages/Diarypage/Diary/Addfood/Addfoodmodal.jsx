@@ -26,7 +26,9 @@ import {
 function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
-
+  const [id,setId]= React.useState("")
+  const [unitfood,setUnitfood] = React.useState()
+//  console.log(id,"id",unitfood,"unit")
   //  console.log(foodData,"foodata")
   const dispatch = useDispatch();
 
@@ -38,11 +40,17 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
     dispatch(fetchFoodData({ foodsearch, tokenfromlocalstorage }));
   };
 
-  const handleClick = (id) => {
-    dispatch(postUserData({ id, tokenfromlocalstorage, finaldate }));
-    dispatch(getUserFood({ tokenfromlocalstorage, finaldate }));
+  const handleClick = (id,unitfood) => {
+    console.log(id,unitfood)
+    dispatch(postUserData({ id, tokenfromlocalstorage, finaldate,unitfood }))
+    .then((res)=>dispatch(getUserFood({ tokenfromlocalstorage, finaldate })))
+    
   };
 
+  const handleInput =(e)=>{
+     setUnitfood(e.target.value)
+  }
+// console.log(unitfood,"foodunit")
   return (
     <>
       <Button h={"20px"} onClick={onOpen}>
@@ -53,15 +61,16 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
         isOpen={isOpen}
         onClose={onClose}
         size="4xl"
+        
       >
-        <ModalOverlay />
-        <ModalContent>
+        <ModalOverlay border={"1px solid blue"} />
+        <ModalContent  border={"2px solid black"} height={"md"} >
           <ModalHeader>Add Food to Diary</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Flex>
               <Input
-                placeholder="small size"
+                placeholder="search your food"
                 size="sm"
                 onChange={handleChange}
               />
@@ -81,16 +90,18 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
                 <Box bg={"silver"}>Description</Box>
 
                 <Box
-                  height={"md"}
+                   height={"200px"}
                   style={{ overflow: "scroll", overflowX: "hidden" }}
                 >
                   {foodData &&
                     foodData.map((el, index) => {
                       return (
                         <Box
+                         cursor={"pointer"}
                           border="1px solid silver"
                           key={index}
-                          onClick={() => handleClick(el._id)}
+                          onClick={() =>setId(el._id)}
+                          _hover={{backgroundColor:"silver"}}
                         >
                           {el.Food.name}
                         </Box>
@@ -100,11 +111,14 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
               </Box>
             </Box>
           </ModalBody>
-          <Box>
-            <input placeholder="amount"></input>
-               <Button>Add</Button>
-
-          </Box>
+      
+          <Flex margin={"auto"} >
+            <Input border={"1px solid black"} placeholder="amount / plate / unit / etc" onChange={handleInput}></Input>
+            <Button onClick={()=>handleClick(id,unitfood)}  width={"50px"} bg={"#FF763F"}>
+              Add
+            </Button>
+          </Flex>
+  
         </ModalContent>
       </Modal>
     </>

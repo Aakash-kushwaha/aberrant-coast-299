@@ -4,6 +4,7 @@ const { UserExerciseModel } = require("../Models/exercisebydate.model");
 const { FoodModel } = require("../Models/fooddata.model");
 const { UserModel } = require("../Models/user.Model");
 const { UserFoodModel } = require("../Models/userfoodbydate.model");
+const { TotalSum } = require("./totalsumofuserdata");
 
 const FoodController = express.Router();
 
@@ -35,6 +36,7 @@ FoodController.post(
       date,
       amount,
       Food: food_data.Food,
+      amount
     });
     await userfood_data.save();
     return res.send({ foodadded: true, message: "food added success" });
@@ -46,15 +48,19 @@ FoodController.get("/userdashboard", authentication, async (req, res) => {
   const date = req.headers.authorization.split(" ")[0];
   const user = await UserModel.findOne({ email });
   const user_id = user._id;
+
   const user_dashboardFood_data = await UserFoodModel.find({ user_id, date });
   const user_dashboardExercise_data = await UserExerciseModel.find({
     user_id,
     date,
   });
-
+  
+  const Total = TotalSum(user_dashboardFood_data, user_dashboardExercise_data);
+  console.log(Total)
   return res.send({
     Food_data: user_dashboardFood_data,
     Exercise_data: user_dashboardExercise_data,
+    Total,
   });
 });
 
