@@ -1,5 +1,6 @@
 const express = require("express");
 const { authentication } = require("../Middlewares/authentication");
+const { UserExerciseModel } = require("../Models/exercisebydate.model");
 const { FoodModel } = require("../Models/fooddata.model");
 const { UserModel } = require("../Models/user.Model");
 const { UserFoodModel } = require("../Models/userfoodbydate.model");
@@ -23,7 +24,7 @@ FoodController.post(
   authentication,
 
   async (req, res) => {
-    const { email, date,amount } = req.body;
+    const { email, date, amount } = req.body;
     const { id } = req.params;
     const user = await UserModel.findOne({ email });
     const user_id = user._id;
@@ -32,6 +33,7 @@ FoodController.post(
     const userfood_data = new UserFoodModel({
       user_id,
       date,
+      amount,
       Food: food_data.Food,
       amount
     });
@@ -41,16 +43,20 @@ FoodController.post(
 );
 
 FoodController.get("/userdashboard", authentication, async (req, res) => {
-
-  const { email} = req.body;
-  const date = req.headers.authorization.split(" ")[0]
-  console.log(date,"date")
+  const { email } = req.body;
+  const date = req.headers.authorization.split(" ")[0];
   const user = await UserModel.findOne({ email });
   const user_id = user._id;
-  const user_dashboard_data = await UserFoodModel.find({ user_id, date });
+  const user_dashboardFood_data = await UserFoodModel.find({ user_id, date });
+  const user_dashboardExercise_data = await UserExerciseModel.find({
+    user_id,
+    date,
+  });
 
-  return res.send(user_dashboard_data);
-
+  return res.send({
+    Food_data: user_dashboardFood_data,
+    Exercise_data: user_dashboardExercise_data,
+  });
 });
 
 module.exports = { FoodController };
