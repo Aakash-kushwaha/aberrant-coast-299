@@ -87,7 +87,7 @@ const Signup = () => {
         Create Your Free Account
       </Heading>
       <Box
-        w="50%"
+        w={{ base: "80%", md: "70%", lg: "50%" }}
         margin="auto"
         backgroundColor={"#FBFBFA"}
         borderRadius="10px"
@@ -126,20 +126,20 @@ const Signup = () => {
         </Box>
       </Box>
       <Box
-        w="50%"
+        w={{ base: "80%", md: "70%", lg: "50%" }}
         margin="auto"
         backgroundColor={"#FBFBFA"}
         borderRadius="10px"
         boxShadow="rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
         mt="20px"
       >
-        <Box p="30px">
+        <Box p={{ base: "17px", md: "30px", lg: "30px" }}>
           <Heading fontSize={"1.1rem"} textAlign="center">
             Your Body Type
           </Heading>
           <Box
             display="flex"
-            w="70%"
+            w={{ base: "100%", md: "70%", lg: "70%" }}
             margin="auto"
             textAlign={"left"}
             marginTop={"10px"}
@@ -155,7 +155,7 @@ const Signup = () => {
           </Box>
           <Box
             display="flex"
-            w="70%"
+            w={{ base: "100%", md: "70%", lg: "70%" }}
             margin="auto"
             marginTop={"10px"}
             textAlign={"left"}
@@ -230,7 +230,12 @@ const Signup = () => {
               onChange={(e) => setYear(e.target.value)}
             ></Input>
           </Box>
-          <Box display="flex" w="70%" margin="auto" marginTop={"10px"}>
+          <Box
+            display="flex"
+            w={{ base: "100%", md: "70%", lg: "70%" }}
+            margin="auto"
+            marginTop={"10px"}
+          >
             Height:
             <Select
               w="68px"
@@ -270,7 +275,13 @@ const Signup = () => {
             </Select>{" "}
             "{" "}
           </Box>
-          <Box display="flex" w="70%" ml="5px" margin="auto" marginTop={"10px"}>
+          <Box
+            display="flex"
+            w={{ base: "100%", md: "70%", lg: "70%" }}
+            ml="5px"
+            margin="auto"
+            marginTop={"10px"}
+          >
             Weight:
             <Input
               type="number"
@@ -285,9 +296,9 @@ const Signup = () => {
         </Box>
       </Box>
       <Button
-        w="50%"
+        w={{ base: "80%", md: "70%", lg: "50%" }}
         margin="auto"
-        ml="25%"
+        ml={{ base: "10%", md: "14.8%", lg: "25%" }}
         mt="20px"
         color="white"
         bg="#67AD5A"
