@@ -285,7 +285,7 @@ function DiscoverThird() {
           lineHeight={"1.8rem"}
           gap="20px"
         >
-          <Heading>Discover your nutrition</Heading>
+          <Heading fontSize={{base:20,md:26,lg:30}}>Discover your nutrition</Heading>
           <Text fontSize={{base:16,md:20,lg:20}}>
             Cronometer encourages you to not just count your calories
             <br />
@@ -372,7 +372,7 @@ function Healthy() {
           m="20px auto"
         >
           <Box w={"50%"} textAlign="center" lineHeight="2rem">
-            <Heading color="gray.600">Develop healthy habits</Heading>
+            <Heading color="gray.600" fontSize={{base:20,md:25,lg:30}}>Develop healthy habits</Heading>
             <Text fontSize={{base:18,md:22,lg:22}}>
               Count your calories, ensure you're meeting nutrient targets, and
               see your progress over time.

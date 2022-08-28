@@ -15,7 +15,7 @@ export const About = () => {
         <Box p={6} textAlign="center">
           <Text
             color="#ff763f"
-            fontSize="1.41em"
+            fontSize={{base:'1em',md:"1.41em",lg:'1.41em'}}
             lineHeight="1.5em"
             fontWeight={700}
             letterSpacing="2px"
@@ -25,7 +25,7 @@ export const About = () => {
           </Text>
           <Heading 
           color="#4f4e53" 
-          fontSize="2.74em" 
+          fontSize={{base:'1.8em',md:'2.4em',lg:"2.74em" }}
           lineHeight="1.3em"
           fontWeight={600}
           >
@@ -39,7 +39,7 @@ export const About = () => {
           marginInlineStart="0px"
           marginInlineEnd="0px"
           color="#404040"
-          fontSize="1.125em"
+          fontSize={{base:'0.5em',md:"1.125em",lg:'1.125em'}}
           lineHeight="1.5em"
         >
           <Text>
@@ -79,7 +79,7 @@ export const About = () => {
         <Box p={6} textAlign="center">
           <Text
             color="#ff763f"
-            fontSize="1.41em"
+            fontSize={{base:'0.8em',md:'1.21em',lg:"1.41em"}}
             lineHeight="1.5em"
             fontWeight={700}
             letterSpacing="2px"
@@ -89,7 +89,7 @@ export const About = () => {
           </Text>
           <Heading 
           color="#4f4e53" 
-          fontSize="2.74em" 
+          fontSize={{base:'1.25em',md:'2.5em',lg:"2.74em"}} 
           lineHeight="1.3em"
           >
             Who We Are
@@ -102,7 +102,7 @@ export const About = () => {
          marginInlineStart="0px"
          marginInlineEnd="0px"
          color="#404040"
-         fontSize="1.125em"
+         fontSize={{base:'0.5em',md:'1em',lg:"1.125em"}}
          lineHeight="1.5em" 
         >
           <Text>
