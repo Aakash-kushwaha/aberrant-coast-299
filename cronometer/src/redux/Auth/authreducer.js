@@ -9,6 +9,7 @@ const initialdata = {
   loading: false,
   signup: false,
   login: false,
+  forgot: false,
   response: {},
 };
 
@@ -20,6 +21,7 @@ const authreducer = (state = initialdata, { type, payload }) => {
         loading: true,
         error: false,
         signup: false,
+        response: payload,
       };
     }
     case types.SIGNUP_SUCCESS: {
@@ -28,7 +30,7 @@ const authreducer = (state = initialdata, { type, payload }) => {
         signup: true,
         loading: false,
         error: false,
-        response: { ...state, payload },
+        response: payload,
       };
     }
     case types.SIGNUP_FAILED: {
@@ -37,6 +39,7 @@ const authreducer = (state = initialdata, { type, payload }) => {
         error: true,
         loading: false,
         signup: false,
+        response: payload,
       };
     }
     case types.LOGIN_REQUEST: {
@@ -45,6 +48,7 @@ const authreducer = (state = initialdata, { type, payload }) => {
         loading: true,
         error: false,
         login: false,
+        response: payload,
       };
     }
     case types.LOGIN_SUCCESS: {
@@ -54,7 +58,7 @@ const authreducer = (state = initialdata, { type, payload }) => {
         loading: false,
         error: false,
         login: true,
-        response: { ...state, payload },
+        response: { ...payload },
       };
     }
     case types.LOGIN_FAILED: {
@@ -63,8 +67,38 @@ const authreducer = (state = initialdata, { type, payload }) => {
         error: true,
         loading: false,
         login: false,
+        response: { ...payload },
       };
     }
+
+    case types.FORGOT_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: false,
+        forgot: false,
+        response: { ...payload },
+      };
+    }
+    case types.FORGOT_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        forgot: true,
+        response: { ...payload },
+      };
+    }
+    case types.FORGOT_FAILURE: {
+      return {
+        ...state,
+        error: true,
+        loading: false,
+        forgot: false,
+        response: { ...payload },
+      };
+    }
+
     default:
       return state;
   }

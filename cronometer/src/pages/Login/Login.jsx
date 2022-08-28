@@ -1,6 +1,6 @@
-import { Box, Button, Image, Input } from "@chakra-ui/react";
+import { Box, Button, Image, Input, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginHandler } from "../../redux/Auth/action";
 import { useEffect } from "react";
@@ -11,22 +11,27 @@ const Login = () => {
   const login = useSelector((store) => store.authreducer.login);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [CheckL, setCheck] = useState(false);
   const HandleLogin = () => {
     const user_data = {
       email,
       password,
     };
     dispatch(LoginHandler(user_data));
+    setCheck(true);
   };
   useEffect(() => {
     if (token && login) {
       navigate("/home");
     }
+    if (CheckL === true && login == false) {
+      alert("Invalid Credentials");
+    }
   }, [token, login]);
   return (
     <div>
       <Box
-        w="50%"
+        w={{ base: "90%", md: "70%", lg: "50%" }}
         margin="auto"
         mb="100px"
         mt="100px"
@@ -63,16 +68,28 @@ const Login = () => {
           </Button>
           <Box display="flex" justifyContent={"space-between"} mt="25px">
             <Box display="flex">
-              Not a Member?{" "}
-              <p style={{ color: "red", marginLeft: "3px", cursor: "pointer" }}>
-                {" "}
-                Sign Up Now
-              </p>
+              <Text fontSize={{ base: "0.75rem", md: "1rem", lg: "1rem" }}>
+                Not a Member?{" "}
+              </Text>
+
+              <Text
+                color="red"
+                ml="3px"
+                fontSize={{ base: "0.75rem", md: "1rem", lg: "1rem" }}
+                cursor="pointer"
+              >
+                <Link to="/signup">Sign Up Now</Link>
+              </Text>
             </Box>
-            <p style={{ color: "red", marginLeft: "3px", cursor: "pointer" }}>
+            <Text
+              color="red"
+              fontSize={{ base: "0.75rem", md: "1rem", lg: "1rem" }}
+              ml="3px"
+              cursor="pointer"
+            >
               {" "}
-              Forgot Password?
-            </p>
+              <Link to="/forgotpassword">Forgot Password?</Link>
+            </Text>
           </Box>
         </Box>
       </Box>

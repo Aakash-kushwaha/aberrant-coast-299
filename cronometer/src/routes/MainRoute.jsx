@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { About } from "../pages/About/About";
@@ -10,18 +9,19 @@ import Homepage from "../pages/homepage/Homepage";
 // import Plans from "../pages/plans/Plans";
 // import Settings from "../pages/settings/Settings";
 import Signup from "../pages/signup/Signup";
-import Footer from "../components/footer/Footer";
+
 import { Support } from "../pages/Support/Support";
 import { Blog } from "../pages/Blogs/Blog";
 import Navbar from "../components/header/Navbar";
 
 import Login from "../pages/Login/Login";
-
+import Footer from "../components/footer/footer";
+import Forget from "../pages/ForgetPassword/forget";
 
 const MainRoute = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar />*/}
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Homepage />} />
@@ -32,6 +32,7 @@ const MainRoute = () => {
         <Route path="/signup" element={<Signup />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/forgotpassword" element={<Forget />} />
       </Routes>
       <Footer />
     </div>

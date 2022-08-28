@@ -5,7 +5,7 @@ export const SignupHandler = (user_data) => (dispatch) => {
   dispatch({ type: types.SIGNUP_REQUEST });
 
   axios
-    .post("http://localhost:8080/signup", user_data)
+    .post("/signup", user_data)
     .then((r) => dispatch({ type: types.SIGNUP_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: types.SIGNUP_FAILED, payload: e.data }));
 };
@@ -13,7 +13,15 @@ export const SignupHandler = (user_data) => (dispatch) => {
 export const LoginHandler = (user_data) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   axios
-    .post("http://localhost:8080/login", user_data)
+    .post("/login", user_data)
     .then((r) => dispatch({ type: types.LOGIN_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: types.LOGIN_FAILED, payload: e.data }));
+};
+
+export const ForgotPassHandler = (user_data) => (dispatch) => {
+  dispatch({ type: types.FORGOT_REQUEST });
+  axios
+    .patch("/forgotpassword", user_data)
+    .then((r) => dispatch({ type: types.FORGOT_SUCCESS, payload: r.data }))
+    .catch((e) => dispatch({ type: types.FORGOT_FAILURE, payload: e.data }));
 };

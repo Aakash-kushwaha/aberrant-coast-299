@@ -66,6 +66,37 @@ UserController.post("/login", UserValidator, async (req, res) => {
     }
   });
 });
+
+UserController.patch("/forgotpassword", async (req, res) => {
+  const { email, password } = req.body;
+
+  const user_data = await UserModel.findOne({ email });
+
+  if (!user_data) {
+    res.status(404);
+    return res.send({ forgot: false, message: "user not found!" });
+  } else {
+    await bcrypt.genSalt(10, async function (err, salt) {
+      await bcrypt.hash(password, salt, async function (err, hash) {
+        if (err) {
+          res.status(404);
+          res.send({ forgot: false, message: "Please try again later" });
+        }
+
+        const updateddata = await UserModel.findByIdAndUpdate(
+          { _id: user_data._id },
+          { password: hash },
+          { new: true }
+        );
+
+        return res.send({
+          forgot: true,
+          message: "password updated Successful",
+        });
+      });
+    });
+  }
+});
 UserController.get("/logout", authentication, async (req, res) => {
   await res.redirect("/");
 });
