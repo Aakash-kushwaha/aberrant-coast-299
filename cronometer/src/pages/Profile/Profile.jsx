@@ -6,24 +6,36 @@ import {Box, Button, Input, Select,Text,label,Checkbox,Stack,Radio,RadioGroup,
   SliderThumb,
   SliderMark} from "@chakra-ui/react"
 
+  
+
 const Profile = () => {
+  const breakpoints = {
+    sm: '30em',
+    md: '48em',
+    lg: '62em',
+    xl: '80em'
+  }
   return (
     <div>
-      <Box width={{base:"30%",sm:"50%",lg:"85%"}} marginTop="50px"marginRight="0px"marginLeft="95px">
-        <Text fontSize="25px"><strong>Profile and Targets</strong></Text>
-        <Text marginTop="0px"marginLeft="0px">Set up your profile so we can accurately calculate your targets.</Text>
-        <Text marginTop="-3px"marginLeft="0px">Customize your targets to reach a weight goal or address your specific health needs.</Text>
-        <Button backgroundColor="#FF763F"color="white"marginTop="-72px"marginLeft="990px"height="30px">Reset All Defaults</Button>
+      <Box width={{base:"30%",md:"50%",lg:"85%"}} marginTop="50px"marginRight="0px"marginLeft="95px" display="flex" justifyContent="space-between">
+      <Box >
+        <Text fontSize={{ base: '18px', md: '15px', lg: '22px' }}><strong>Profile and Targets</strong></Text>
+        <Text fontSize={{ base: '15px', md: '12px', lg: '18px' }}>Set up your profile so we can accurately calculate your targets.</Text>
+        <Text fontSize={{ base: '15px', md: '12px', lg: '18px' }}>Customize your targets to reach a weight goal or address your specific health needs.</Text>
+        </Box>
+        <Box>
+        <Button backgroundColor="#FF763F" height="30px">Reset All Defaults</Button>
       </Box>
-      <Box marginTop="10px" marginLeft="95px" width={{base:"30%",sm:"50%",lg:"85%"}} height="300px"border="1px solid #E0E0DC">
+      </Box>
+      <Box marginTop="10px" marginLeft="95px" width={{base:"30%",md:"50%",lg:"85%"}} border="1px solid #E0E0DC">
         <Box backgroundColor="#FBFBFA"height="50px"border="1px solid #E0E0DC">
-        <Text paddingTop="10px" marginLeft="20px"marginBottom="0px"color="#4F4E53"fontSize="21px">Profile</Text> 
+        <Text paddingTop="10px" marginLeft="20px"marginBottom="0px"color="#4F4E53" fontSize={{ base: '15px',sm:'12px', md: '15px', lg: '21px' }}>Profile</Text> 
         </Box> 
         <Box display="flex"justifyContent="space-around">
-          <Box width="40%"height="200px"marginTop="30px"marginLeft="0px">
+          <Box width={{base:"30%",sm:"20%",lg:"40%"}} marginTop="30px"marginLeft="0px">
             <Box display="flex">
              <label>Sex</label> 
-             <Select size="xs" width="70%"marginTop="3px"marginLeft="125px">
+             <Select size="xs" width={{base:"30%",sm:"100%",lg:"70%"}}marginTop="3px">
               <option>Male</option>
               <option>Female</option>
               <option>Female+Pregnant</option>
@@ -32,7 +44,7 @@ const Profile = () => {
              </Box>
              <Box display="flex"marginTop="10px">
              <label>Birthday</label> 
-             <Input type="date" size="s" marginTop="3px"marginLeft="125px"/>
+             <Input type="date" size="s" marginTop="3px"/>
              </Box>
              <Box display="flex"marginTop="30px">
               <label >Current Weight</label>
@@ -46,10 +58,10 @@ const Profile = () => {
                
              </Box>
           </Box>
-          <Box width={{base:"40%",sm:"20%",lg:"40%"}} height="200px"marginTop="30px"marginLeft="0px">
+          <Box width={{base:"20%",sm:"20%",lg:"40%"}} marginTop="30px"marginLeft="0px">
               <Box display="flex"marginTop="0px">
                 <label>Height</label>
-                <select  style={{ height:"28px",marginTop:"0px",marginLeft:"68px",border:"1px solid #E0E0DC"}}>
+                <Select  style={{ marginTop:"0px",border:"1px solid #E0E0DC"}}>
                     <option>5</option>
                     <option>6</option>
                     <option>7</option>
@@ -57,9 +69,9 @@ const Profile = () => {
                     <option>9</option>
                     <option>10</option>
 
-                </select>
-                <Text fontSize="15px"marginLeft="5px">ft</Text>
-                <select  style={{height:"28px",marginTop:"0px",marginLeft:"19px",border:"1px solid #E0E0DC"}}>
+                </Select>
+                <Text fontSize={{ base: '15px',sm:'10px', md: '12px', lg: '15px' }}marginLeft="5px">ft</Text>
+                <Select  style={{height:"28px",marginTop:"0px",marginLeft:"19px",border:"1px solid #E0E0DC"}}>
                 <option>1</option><option>2</option><option>3</option><option>4</option>
                     <option>5</option>
                     <option>6</option>
@@ -68,11 +80,11 @@ const Profile = () => {
                     <option>9</option>
                     <option>10</option>
                     <option>11</option>
-                </select>
-                <Text fontSize="15px"marginLeft="5px">in</Text>
-                <Text fontSize="15px"marginLeft="15px">or</Text>
-                <Input type="number" width="95px"height="28px"border="1px solid #E0E0DC"marginLeft="19px"/>
-                <Text fontSize="15px"marginLeft="5px">cm</Text>
+                </Select>
+                <Text fontSize={{ base: '14px',sm:'10px', md: '12px', lg: '15px' }}marginLeft="5px">in</Text>
+                <Text fontSize={{ base: '14px',sm:'10px', md: '12px', lg: '15px' }} marginLeft="15px">or</Text>
+                <Input type="number" width={{ base: '60px', md: '50px', lg: '95px' }}height="28px"border="1px solid #E0E0DC"marginLeft="19px"/>
+                <Text fontSize={{ base: '14px',sm:'10px', md: '12px', lg: '15px' }}marginLeft="5px">cm</Text>
               </Box>
               <Box display="flex"marginTop="10px">
               <label >Body fat</label>
@@ -85,29 +97,29 @@ const Profile = () => {
           </Box>
         </Box>
       </Box>
-      <Box marginTop="40px"marginLeft="95px" width={{base:"30%",sm:"50%",lg:"85%"}}border="1px solid #E0E0DC">
+      <Box marginTop="40px"marginLeft="95px" width={{base:"30%",md:"50%",lg:"85%"}}border="1px solid #E0E0DC">
         <Box backgroundColor="#FBFBFA"height="50px"border="1px solid #E0E0DC">
-          <Text paddingTop="10px"marginLeft="20px"marginBottom="0px"color="#4F4E53"fontSize="21px">Energy Burned</Text> 
+          <Text paddingTop="10px"marginLeft="20px"marginBottom="0px"color="#4F4E53" fontSize={{ base: '15px',sm:'12px', md: '15px', lg: '21px' }}>Energy Burned</Text> 
         </Box>
         <Box display="flex"justifyContent="space-around">
-          <Box width={{base:"40%",sm:"20%",lg:"40%"}}height="200px"marginTop="30px"marginLeft="0px">
+          <Box width={{base:"40%",sm:"20%", md:"30%",lg:"40%"}}height="200px"marginTop="30px"marginLeft="0px">
             <Box display="flex">
              <label>BMR</label> 
-             <Select size="xs" width="70%"marginTop="3px"marginLeft="125px">
+             <Select size="xs" width={{ base: '60%', md: '40%', lg: '70%' }}marginTop="3px"marginLeft="125px">
               <option>Mifflin St. Jeor Equation</option>
               <option>Custom</option>
               </Select>
              </Box>
              <Box display="flex">
-                <Text fontSize="12px"marginLeft="158px">Basal Metabolic Rate</Text>
-                <Text fontSize="15px"marginLeft="5px">1654 kcal</Text>
+                <Text fontSize={{ base: '14px',sm:'8px', md: '10px', lg: '12px' }} marginLeft="158px">Basal Metabolic Rate</Text>
+                <Text fontSize={{ base: '14px',sm:'10px', md: '12px', lg: '15px' }} marginLeft="5px">1654 kcal</Text>
              </Box>
              
             </Box>
           <Box width={{base:"40%",sm:"20%",lg:"40%"}} height="200px"marginTop="30px"marginLeft="0px">
           <Box display="flex">
              <label>Activity Level</label> 
-             <Select size="xs" width="70%"marginTop="3px"marginLeft="125px">
+             <Select size="xs" width={{ base: '60%', md: '40%', lg: '70%' }} marginTop="3px"marginLeft="125px">
               <option>Sedentary(BMR * 0.2)</option>
               <option>Lightly Active(BMR * 0.357)</option>
               <option>Moderately Active(BMR * 0.5)</option>
@@ -117,21 +129,21 @@ const Profile = () => {
               </Select>
            </Box>
            <Box marginLeft="200px">
-              <Text fontSize="10px" marginLeft="0px">Little or no exercise. You will burn some additional calories over and above BMR even for light activity such as watching TV, working at a desk, etc. Use this setting if you are synced to a device that tracks workouts only (not tracking general activity)</Text>
+              <Text fontSize={{ base: '5px',sm:'5px', md: '6px', lg: '10px' }}  marginLeft="0px">Little or no exercise. You will burn some additional calories over and above BMR even for light activity such as watching TV, working at a desk, etc. Use this setting if you are synced to a device that tracks workouts only (not tracking general activity)</Text>
            </Box>
            <Box display="flex" marginTop="13px">
            <Checkbox colorScheme='orange' >Replace with imported activity</Checkbox>
            </Box>
            <Box marginLeft="200px">
-              <Text fontSize="10px" marginLeft="0px">Imported activity from connected device will override selected activity level when available. Cronometer will default to selected activity level on days when no imported activity is available</Text>
+              <Text fontSize={{ base: '5px',sm:'5px', md: '6px', lg: '10px' }}  marginLeft="0px">Imported activity from connected device will override selected activity level when available. Cronometer will default to selected activity level on days when no imported activity is available</Text>
            </Box>
             </Box>
         </Box>
-        <Box style={{backgroundColor:"#d3e6f8"}} height="50px" width="94%" marginTop="40px" marginLeft="40px">
-          <Text fontSize="22px" marginTop="10px" textAlign="center">Total Energy Burned (TDEE) = 1985 kcal + Exercise</Text>
+        <Box style={{backgroundColor:"#d3e6f8"}} height="50px" width={{ base: '75%', md: '60%', lg: '94%' }} marginTop="40px" marginLeft="40px">
+          <Text fontSize={{ base: '8px',sm:'12px', md: '16px', lg: '22px' }} marginTop="10px" textAlign="center">Total Energy Burned (TDEE) = 1985 kcal + Exercise</Text>
         </Box>
         <Box  marginTop="15px" marginLeft="40px">
-          <Text fontSize="20px">Variable Calories Burned</Text>
+          <Text fontSize={{ base: '12px',sm:'10px', md: '15px', lg: '20px' }} >Variable Calories Burned</Text>
           <Text fontSize="10px">Choose how you would like your diary entries to contribute to your TDEE.</Text>
         </Box>
         <Box display="flex" display="flex"justifyContent="space-around">
@@ -147,7 +159,7 @@ const Profile = () => {
             </Box>
         </Box>
      </Box>
-     <Box marginTop="40px"marginLeft="95px"width={{base:"30%",sm:"50%",lg:"85%"}}border="1px solid #E0E0DC">
+     <Box marginTop="40px"marginLeft="95px"width={{base:"30%",md:"50%",lg:"85%"}}border="1px solid #E0E0DC">
       <Box backgroundColor="#FBFBFA"height="50px"border="1px solid #E0E0DC">
         <Text paddingTop="10px"marginLeft="20px"marginBottom="0px"color="#4F4E53"fontSize="21px">Weight Goal or Custom Energy Target</Text> 
         </Box>
@@ -158,7 +170,7 @@ const Profile = () => {
              Weight Goal
           </Radio>
           
-          <Input type="number" width="95px"height="28px"border="1px solid #E0E0DC"marginLeft="19px"/>
+          <Input type="number" width={{ base: '80px', md: '60px', lg: '95px' }} height="28px"border="1px solid #E0E0DC"marginLeft="19px"/>
           <Text>kg</Text>
           </Stack>
           </Box>
@@ -174,7 +186,7 @@ const Profile = () => {
              Custom Energy Target
           </Radio>
           
-          <Input type="number" width="120px"height="28px"border="1px solid #E0E0DC"marginLeft="19px"/>
+          <Input type="number" width={{ base: '90px', md: '80px', lg: '120px' }}height="28px"border="1px solid #E0E0DC"marginLeft="19px"/>
           <Text>kcal</Text>
           </Stack>
           </Box>
@@ -182,7 +194,7 @@ const Profile = () => {
         <Box marginTop="10px">
           <Text fontSize="12px" marginLeft="88px"><strong>Rate</strong>:Gain weight:(0.34 kg/week)</Text>
         </Box>
-        <Box width="28%" marginLeft="53px" marginTop="10px">
+        <Box width={{ base: '25%', md: '20%', lg: '28%' }} marginLeft="53px" marginTop="10px">
         <Slider defaultValue={60} min={0} max={300} step={30}>
             <SliderTrack bg='red.100'>
               <Box position='relative' right={10} />
@@ -202,12 +214,12 @@ const Profile = () => {
           <Text fontSize="22px" marginTop="10px" textAlign="center">Daily Energy Surplus: 374 kcal</Text>
         </Box>
      </Box>
-     <Box marginTop="40px"marginLeft="95px" width={{base:"30%",sm:"50%",lg:"85%"}}border="1px solid #E0E0DC">
+     <Box marginTop="40px"marginLeft="95px" width={{base:"30%",md:"50%",lg:"85%"}}border="1px solid #E0E0DC">
       <Box backgroundColor="#FBFBFA"height="50px"border="1px solid #E0E0DC">
         <Text paddingTop="10px"marginLeft="20px"marginBottom="0px"color="#4F4E53"fontSize="21px">Macronutrient Targets</Text> 
         </Box>
         <Box display="flex"justifyContent="space-around">
-          <Box width="60%"marginTop="30px"marginLeft="0px">
+          <Box width={{ base: '50%', md: '40%', lg: '60%' }}marginTop="30px"marginLeft="0px">
             <Box display="flex">
              <label style={{marginLeft:"35px",fontSize:"15px"}} >Set macro targets using</label> 
              <Select size="xs" width="27%"marginTop="3px"marginLeft="31px">
@@ -217,9 +229,9 @@ const Profile = () => {
              </Select>
              </Box>
             </Box>
-            <Box width="40%"marginTop="30px"marginLeft="0px"></Box>
+            <Box width={{ base: '30%', md: '25%', lg: '40%' }}marginTop="30px"marginLeft="0px"></Box>
            </Box> 
-           <Box width="90%" marginTop="30px" marginLeft="48px" style={{backgroundColor:"#f8f8f8"}} >
+           <Box width={{ base: '75%', md: '50%', lg: '90%' }} marginTop="30px" marginLeft="48px" style={{backgroundColor:"#f8f8f8"}} >
             <Box display="flex" justify-content="space-around">
             <Box marginTop="20px">
               <Text fontSize="18px" marginLeft="22px">Macro Ratios</Text>
@@ -259,7 +271,7 @@ const Profile = () => {
             </Box>
            </Box>
      </Box>
-     <Box marginTop="40px"marginLeft="95px"width={{base:"30%",sm:"50%",lg:"85%"}}height="300px"border="1px solid #E0E0DC">
+     <Box marginTop="40px"marginLeft="95px"width={{base:"30%",md:"50%",lg:"85%"}}height="300px"border="1px solid #E0E0DC">
       <Box backgroundColor="#FBFBFA"height="50px"border="1px solid #E0E0DC">
         <Text paddingTop="10px"marginLeft="20px"marginBottom="0px"color="#4F4E53"fontSize="21px">Tracking Carbohydrates</Text> 
         </Box>

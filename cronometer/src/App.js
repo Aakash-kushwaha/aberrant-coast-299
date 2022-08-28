@@ -1,9 +1,10 @@
-
+import Profile from "./pages/Profile/Profile";
 //import './App.css';
 
 function App() {
   return (
     <div className="App">
+      
     </div>
   );
 }
