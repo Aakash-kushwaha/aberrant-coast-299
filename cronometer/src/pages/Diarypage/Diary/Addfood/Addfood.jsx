@@ -18,6 +18,7 @@ import Highlighted_container from "../Highlighted_container";
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import LoginHeader from "../../../../components/header/LoginHeader";
 
 
 
@@ -44,10 +45,9 @@ const Addfood = () => {
    
   };
 // console.log(finaldate,"finaldate")
-// let tokenfromlocalstorage =JSON.parse(localStorage.getItem("token"))
-// console.log(tokenfromlocalstorage,"token")
-  let tokenfromlocalstorage =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrQGdtYWlsLmNvbSIsImlhdCI6MTY2MTU5MDUyMCwiZXhwIjoxNjYxNzYzMzIwfQ.7IjBXldF6GgdwkPXCXudHlQWPThgCULvTAq55HHR2Z0";
+let tokenfromlocalstorage =JSON.parse(localStorage.getItem("token"))
+console.log(tokenfromlocalstorage,"token")
+
 
   const [exser, setExer] = React.useState([]);
   const foodData = useSelector((store) => store.userreducer.Food);
@@ -98,8 +98,9 @@ const Addfood = () => {
     );
   };
 
-  return (
+  return (<>
     <div className={styles.maincontainer}>
+        
       <div className={styles.date}>
       
       <Calendar  onChange={onChange} value={value} />
@@ -146,7 +147,7 @@ const Addfood = () => {
         </div>
       </div>
     </div>
-  );
+</>);
 };
 
 export default Addfood;

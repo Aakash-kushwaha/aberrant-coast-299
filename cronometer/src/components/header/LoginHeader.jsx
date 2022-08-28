@@ -87,7 +87,7 @@ const LoginHeader=()=>{
                 <Plans/>
             </TabPanel>
             <TabPanel>
-                <Help/>
+               <Plans></Plans>
             </TabPanel>
         </TabPanels>
     </Tabs>

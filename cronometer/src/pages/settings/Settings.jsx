@@ -6,6 +6,7 @@ import { RiDeleteBin2Fill } from "react-icons/ri";
 import {useSelector} from "react-redux";
 import { useNavigate} from "react-router-dom";
 import axios from "axios";
+import Profile from '../Profile/Profile';
 const Settings = () => {
   // const token=useSelector((state)=>state.authreducer.token);
   const navigate=useNavigate();
@@ -21,7 +22,7 @@ const Settings = () => {
     <Tabs variant='enclosed' size='sm' align='center'>
   <TabList>
     <Tab>Account</Tab>
-    <Tab>Profile+Target</Tab>
+    <Tab onClick={()=>navigate("/profile")}>Profile+Target</Tab>
     <Tab>Target Scheduler</Tab>
     <Tab>Fasting</Tab>
     <Tab>Display</Tab>
@@ -123,7 +124,7 @@ const Settings = () => {
   </TabPanel>
   {/* 2nd Tab */}
   <TabPanel>
-      <p>two!</p>
+      <Profile></Profile>
     </TabPanel>
   </TabPanels>
 </Tabs>

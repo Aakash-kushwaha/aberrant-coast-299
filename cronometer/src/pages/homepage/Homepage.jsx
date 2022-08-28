@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
+import Navbar from "../../components/header/Navbar";
 import { Testimonial } from "./comp/testimonial";
 
 const Homepage = () => {
@@ -23,6 +24,7 @@ const Homepage = () => {
       p={"2%"}
       h={"fit-content"}
     >
+     
       <Box>
         <FirstBox />
       </Box>
