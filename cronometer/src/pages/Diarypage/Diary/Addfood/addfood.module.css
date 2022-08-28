@@ -1,0 +1,42 @@
+.maincontainer{
+    display: flex;
+    margin: auto;
+    border:1px solid black;
+    width:100%;
+    gap:2rem;
+    /* height: 1200px; */
+ 
+}
+
+.date{
+    width:350px;
+    border:1px solid red;
+    height: 300px;
+    
+}
+
+.curdate{
+    width: 40%;
+     margin: auto
+}
+
+
+
+.container{
+    border:3px solid green;
+    /* width: 730px; */
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.headernav{
+    display: flex;
+    /* width: 500px; */
+     background-color: whitesmoke;
+     justify-content: space-around;
+  
+}
+.headernav>div{
+    display: flex;
+}
