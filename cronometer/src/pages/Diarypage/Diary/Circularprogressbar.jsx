@@ -11,7 +11,7 @@ import {
 
 
 const Circularprogressbar = ({heading,percentage,calories,unit}) => {
-console.log(calories,"calors")
+// console.log(calories,"calors")
   return (
     <div>
     <div style={{ width:101, height:101,margin:"auto"}}>

@@ -10,6 +10,7 @@ import Diary from "../../pages/Diarypage/Diary/Diary";
 import Settings from "../../pages/settings/Settings";
 import Plans from "../../pages/plans/Plans";
 import Help from "../../pages/help/Help";
+import Addfood from "../../pages/Diarypage/Diary/Addfood/Addfood";
 const LoginHeader=()=>{
     const navigate=useNavigate();
     return(<>
@@ -72,7 +73,7 @@ const LoginHeader=()=>{
         </TabList>
         <TabPanels>
             <TabPanel>
-                <Diary/>
+              <Addfood></Addfood>
             </TabPanel>
             <TabPanel>
                 {/* <Trends/> */}

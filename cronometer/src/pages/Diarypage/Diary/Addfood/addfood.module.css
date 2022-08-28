@@ -1,7 +1,7 @@
 .maincontainer{
     display: flex;
     margin: auto;
-    border:1px solid black;
+    /* border:1px solid black; */
     width:95%;
  
     /* height: 1200px; */
@@ -10,7 +10,7 @@
 
 .date{
     width:350px;
-    border:1px solid red;
+    /* border:1px solid red; */
     height: 300px;
     
 }
@@ -23,11 +23,14 @@
 
 
 .container{
-    border:3px solid green;
+    /* border:3px solid green; */
     /* width: 730px; */
     height: 300px;
     overflow-y: scroll;
     overflow-x: hidden;
+    /* padding: 1re; */
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+  
 }
 
 .headernav{

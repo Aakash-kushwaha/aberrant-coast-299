@@ -145,7 +145,7 @@ const fetchExerciseDataFailed =(payload)=>{
 
 const fetchExerciseData=({foodsearch,tokenfromlocalstorage})=>(dispatch)=>{
     dispatch(fetchExerciseDataRequest())
-  axios.get("/exercise",{
+return  axios.get("/exercise",{
         params:{
           q:foodsearch
         },
@@ -193,7 +193,7 @@ const postExerciseData=({id,tokenfromlocalstorage,finaldate})=>(dispatch)=>{
           date:finaldate,
         }
       })
-  .then((res)=>console.log(res,"resexer"))
+  .then((res)=>dispatch(getUserFood({tokenfromlocalstorage,finaldate})))
   .catch((err)=>console.log(err,"er"))
 }
 

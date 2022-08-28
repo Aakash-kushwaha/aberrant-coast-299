@@ -1,12 +1,14 @@
+import { getLocalData, saveLocalData } from "../Utils/localstroage";
 import * as types from "./actionType";
 
 const initialdata = {
-  token: "",
+  token: getLocalData("token") || "",
   id: null,
   data: null,
   error: false,
   loading: false,
   signup: false,
+  login: false,
   response: {},
 };
 
@@ -40,16 +42,27 @@ const authreducer = (state = initialdata, { type, payload }) => {
     case types.LOGIN_REQUEST: {
       return {
         ...state,
+        loading: true,
+        error: false,
+        login: false,
       };
     }
     case types.LOGIN_SUCCESS: {
+      saveLocalData("token", payload.token);
       return {
         ...state,
+        loading: false,
+        error: false,
+        login: true,
+        response: { ...state, payload },
       };
     }
     case types.LOGIN_FAILED: {
       return {
         ...state,
+        error: true,
+        loading: false,
+        login: false,
       };
     }
     default:

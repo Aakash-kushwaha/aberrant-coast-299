@@ -1,6 +1,8 @@
 .Energybar{
-    /* border:1px solid red; */
+    /* border:1px solid s ilver; */
     display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     
     
 }

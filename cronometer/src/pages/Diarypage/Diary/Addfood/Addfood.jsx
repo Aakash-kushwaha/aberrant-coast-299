@@ -4,94 +4,106 @@ import { appleimg, exercise, biometric, notes } from "./img";
 import FoodTable from "./FoodTable";
 import Addfoodmodal from "./Addfoodmodal";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchExerciseData, fetchFoodData, getUserFood, postExerciseData, postUserData } from "../../../../redux/User/action";
+import {
+  fetchExerciseData,
+  fetchFoodData,
+  getUserFood,
+  postExerciseData,
+  postUserData,
+} from "../../../../redux/User/action";
 import { Box, Input } from "@chakra-ui/react";
 import Energysummaryprogressbar from "../Energysummaryprogressbar";
 import Highlighted_container from "../Highlighted_container";
+
+
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+
+
+
+
 const Addfood = () => {
-
   const [finaldate, setDate] = React.useState("");
+  const [value, onChange] = React.useState(new Date());
+  console.log(value,"curdate")
 
 
-  const curentDate =()=>{
-    let today = new Date();
-    let year = today.getFullYear();
-  
-    let month = today.getMonth() + 1;
+  const curentDate = () => {
+    // console.log(value,"value")
+    let year = value.getFullYear();
+
+    let month = value.getMonth() + 1;
     if (month < 9) month = "0" + month;
-  
+
     // console.log(typeof month)
-    let date = today.getDate();
-    if(date<9) date = "0"+date
+    let date = value.getDate();
+    if (date < 9) date = "0" + date;
     let curdate = `${year}-${month}-${date}`;
-   setDate(curdate)
-  }
-
- 
-
+   curdate && setDate(curdate);
+   
+  };
+// console.log(finaldate,"finaldate")
   let tokenfromlocalstorage =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrQGdtYWlsLmNvbSIsImlhdCI6MTY2MTU5MDUyMCwiZXhwIjoxNjYxNzYzMzIwfQ.7IjBXldF6GgdwkPXCXudHlQWPThgCULvTAq55HHR2Z0";
 
-   const [exser,setExer]= React.useState([])
+  const [exser, setExer] = React.useState([]);
   const foodData = useSelector((store) => store.userreducer.Food);
   const userFood = useSelector((store) => store.userreducer.UserfoodData);
-  const Exercise = useSelector((store)=>store.userreducer.exerciseData)
+  const Exercise = useSelector((store) => store.userreducer.exerciseData);
 
-  
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    curentDate()
-      // console.log(finaldate,"date")
+      curentDate()
+    // console.log(finaldate,"date")
     dispatch(fetchFoodData({ tokenfromlocalstorage }));
-     dispatch(fetchExerciseData({tokenfromlocalstorage}))    ;
+    dispatch(fetchExerciseData({ tokenfromlocalstorage }))
+  
+    // console.log(finaldate,"date")
+
   }, []);
 
-  React.useEffect(()=>{
-   finaldate && dispatch(getUserFood({ tokenfromlocalstorage,finaldate}))
+  React.useEffect(() => {
+    curentDate()
+    finaldate && dispatch(getUserFood({ tokenfromlocalstorage, finaldate }));
+  }, [value]);
 
-  },[finaldate])
-
-  React.useEffect(()=>{
-    
-    Exercise && setExer(Exercise.data)
-   },[Exercise])
+  React.useEffect(() => {
+    Exercise && setExer(Exercise.data);
+  }, [Exercise]);
 
   // console.log(exser,"date bhar")
-  const DatewiseData=(e)=>{
-    
-    setDate(e.target.value)
+  const DatewiseData = () => {
+    // setDate(e.target.value);
 
-    dispatch(getUserFood({ tokenfromlocalstorage,finaldate}))
-
-  }
-
-  const handleClick=(id,unitfood) =>{
-    // console.log(id,unitfood,"id food")
-    dispatch(postUserData({ id, tokenfromlocalstorage, finaldate,unitfood }))
-    .then((res)=>dispatch(getUserFood({ tokenfromlocalstorage, finaldate })))
-    
+   finaldate && dispatch(getUserFood({ tokenfromlocalstorage, finaldate }));
   };
 
-  const sendExercise=(id,unitfood) =>{
+  const handleClick = (id, unitfood) => {
     // console.log(id,unitfood,"id food")
-    dispatch(postExerciseData({ id, tokenfromlocalstorage, finaldate }))
-    .then((res)=>dispatch(fetchExerciseData({ tokenfromlocalstorage, finaldate })))
-    
+    dispatch(
+      postUserData({ id, tokenfromlocalstorage, finaldate, unitfood })
+    ).then((res) =>
+      dispatch(getUserFood({ tokenfromlocalstorage, finaldate }))
+    );
+  };
+
+  const sendExercise = (id, unitfood) => {
+    // console.log(id,unitfood,"id food")
+    dispatch(postExerciseData({ id, tokenfromlocalstorage, finaldate })).then(
+      (res) => dispatch(fetchExerciseData({ tokenfromlocalstorage, finaldate }))
+    );
   };
 
   return (
     <div className={styles.maincontainer}>
-      <div className={styles.date} >
-        <div className={styles.curdate}>{finaldate}</div>
-        <Box border ="1px solid silver">
-          <Box  width= "65%" margin= "auto" >
-            <Input  border= "1px solid silver" type="date" w={"100%"} onChange={DatewiseData}></Input>
-          </Box>
-        </Box>
+      <div className={styles.date}>
+      
+      <Calendar  onChange={onChange} value={value} />
       </div>
-
-      <Box >
+      <Box>
+      <Box border="px solid silver" mb={"1rem"} boxShadow= "rgba(0, 0, 0, 0.16) 0px 1px 4px">
         <div className={styles.headernav}>
           <div>
             <img src={appleimg}></img>
@@ -100,7 +112,7 @@ const Addfood = () => {
               foodData={foodData}
               finaldate={finaldate}
               name={"ADD FOOD"}
-             handleClick={handleClick}
+              handleClick={handleClick}
             ></Addfoodmodal>
           </div>
           <div>
@@ -125,8 +137,11 @@ const Addfood = () => {
         <div className={styles.container}>
           <FoodTable userFood={userFood}></FoodTable>
         </div>
+        </Box>
+        <Box border="1px solid silver">
         <Energysummaryprogressbar {...userFood}></Energysummaryprogressbar>
-        <Highlighted_container  userFood={userFood}></Highlighted_container>
+        <Highlighted_container userFood={userFood}></Highlighted_container>
+        </Box>
       </Box>
     </div>
   );

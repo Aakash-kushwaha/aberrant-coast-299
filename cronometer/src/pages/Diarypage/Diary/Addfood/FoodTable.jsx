@@ -11,14 +11,15 @@ import {
   } from '@chakra-ui/react'
 
   import React from 'react'
+  import { appleimg, exercise } from './img'
   
   const FoodTable = ({userFood}) => {
     // console.log(userFood,"table")
     return (
 <TableContainer
-
+border={"1px solid silver"}
  >
-  <Table colorScheme='teal'  >
+  <Table colorScheme='teal' size={"xsm"} >
     <Thead>
       <Tr>
         <Th>Description</Th>
@@ -31,7 +32,10 @@ import {
     
      { userFood && userFood.Food_data.map((el,index)=>{
       return <Tr key={index}>
-      <Td>{el.Food.name}</Td>
+      <Td display={"flex"} gap={".2rem"}>
+      <img src={appleimg}></img>
+      
+      {el.Food.name}</Td>
       <Td>{el.amount}</Td>
         <Td isNumeric>1 unit</Td>
         <Td isNumeric>{el.Food.General.Energy.val} </Td>
@@ -40,7 +44,9 @@ import {
 
      { userFood && userFood.Exercise_data.map((el,index)=>{
       return <Tr key={index}>
-      <Td>{el.Exercise.name}</Td>
+      <Td display={"flex"} gap={".2rem"}>
+      <img src={exercise}></img>
+      {el.Exercise.name}</Td>
       <Td>{el.Exercise.amount.val}</Td>
         <Td isNumeric>{el.Exercise.amount.unit}</Td>
         <Td isNumeric>{el.Exercise.Energy} </Td>

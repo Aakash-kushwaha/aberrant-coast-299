@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+import { Box, CircularProgress, CircularProgressLabel, Text } from "@chakra-ui/react";
 import styles from "./Energybar.module.css";
 import Circularprogressbar from "./Circularprogressbar";
 import Lineprogressbar from "./Lineprogressbar";
@@ -12,15 +12,15 @@ const Energysummaryprogressbar = (data) => {
   React.useEffect(() => {
     data && setData(data.Total);
   }, [data]);
-  console.log(Data && Data, "data");
+  // console.log(Data && Data, "data");
   return (
     <div>
       <div className={styles.Energybar}>
         <div>
           <div className={styles.consumed_burnedmain}>
-            <h2 style={{ textAlign: "left", paddingLeft: "0.5rem" }}>
+            <Text fontWeight={600} mb={"1rem"}>
               Energy Summary
-            </h2>
+            </Text>
             <div className={styles.consumed_burned}>
               <Circularprogressbar
                 heading={"Consumed"}
@@ -57,9 +57,9 @@ const Energysummaryprogressbar = (data) => {
         </div>
         <div>
           <div className={styles.macronutrientsmain}>
-            <h2 style={{ textAlign: "left", paddingLeft: "0.5rem" }}>
-              Macronutrients
-            </h2>
+          <Text fontWeight={600} mb={"1rem"}>
+              Energy Summary
+            </Text>
             <div className={styles.macronutrients}>
               {Data &&
                 Data.General &&

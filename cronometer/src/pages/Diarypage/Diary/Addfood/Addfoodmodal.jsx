@@ -18,6 +18,7 @@ import axios from "axios";
 import { appleimg } from "./img";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  fetchExerciseData,
   fetchFoodData,
   getUserFood,
   postUserData,
@@ -38,6 +39,7 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handle
     let foodsearch = e.target.value;
 
     dispatch(fetchFoodData({ foodsearch, tokenfromlocalstorage }));
+    dispatch(fetchExerciseData({foodsearch,tokenfromlocalstorage}))
   };
 
   const sendData = (id,unitfood) => {
@@ -62,8 +64,8 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handle
         size="4xl"
         
       >
-        <ModalOverlay border={"1px solid blue"} />
-        <ModalContent  border={"2px solid black"} height={"md"} >
+        <ModalOverlay  />
+        <ModalContent   height={"md"} >
           <ModalHeader>Add Food to Diary</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -110,7 +112,7 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handle
             </Box>
           </ModalBody>
       
-          <Flex margin={"auto"} >
+          <Flex margin={"auto"} mb={"1rem"}>
             <Input border={"1px solid black"} placeholder="amount / plate / unit / etc" onChange={handleInput}></Input>
             <Button onClick={()=>sendData(id,unitfood)}  width={"50px"} bg={"#FF763F"}>
               Add
