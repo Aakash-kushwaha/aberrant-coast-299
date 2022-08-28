@@ -21,7 +21,6 @@ import Footer from "../components/footer/Footer";
 import { Blog } from "../pages/Blogs/Blog"
 import Navbar from "../components/header/Navbar";
 import { Box, Progress } from "@chakra-ui/react";
-import InnerNav from "../components/InnerNav/InnerNav";
 import LoginHeader from "../components/header/LoginHeader";
 
 
@@ -37,6 +36,7 @@ const MainRoute = () => {
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Homepage />} />
+        <Route path="/home" element={<Addfood></Addfood>}></Route>
         <Route path="/support" element={<Support />} />
         <Route path="/blog" element={<Blog />} /> 
         {/* <Route path="/plans" element={<Plans />} /> */}

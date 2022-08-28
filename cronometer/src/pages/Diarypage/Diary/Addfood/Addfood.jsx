@@ -26,7 +26,7 @@ import 'react-calendar/dist/Calendar.css';
 const Addfood = () => {
   const [finaldate, setDate] = React.useState("");
   const [value, onChange] = React.useState(new Date());
-  console.log(value,"curdate")
+  // console.log(value,"curdate")
 
 
   const curentDate = () => {
@@ -44,6 +44,8 @@ const Addfood = () => {
    
   };
 // console.log(finaldate,"finaldate")
+// let tokenfromlocalstorage =JSON.parse(localStorage.getItem("token"))
+// console.log(tokenfromlocalstorage,"token")
   let tokenfromlocalstorage =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrQGdtYWlsLmNvbSIsImlhdCI6MTY2MTU5MDUyMCwiZXhwIjoxNjYxNzYzMzIwfQ.7IjBXldF6GgdwkPXCXudHlQWPThgCULvTAq55HHR2Z0";
 
@@ -102,8 +104,8 @@ const Addfood = () => {
       
       <Calendar  onChange={onChange} value={value} />
       </div>
-      <Box>
-      <Box border="px solid silver" mb={"1rem"} boxShadow= "rgba(0, 0, 0, 0.16) 0px 1px 4px">
+      <div>
+      <div >
         <div className={styles.headernav}>
           <div>
             <img src={appleimg}></img>
@@ -137,12 +139,12 @@ const Addfood = () => {
         <div className={styles.container}>
           <FoodTable userFood={userFood}></FoodTable>
         </div>
-        </Box>
-        <Box border="1px solid silver">
+        </div>
+        <div border="1px solid silver">
         <Energysummaryprogressbar {...userFood}></Energysummaryprogressbar>
         <Highlighted_container userFood={userFood}></Highlighted_container>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </div>
   );
 };

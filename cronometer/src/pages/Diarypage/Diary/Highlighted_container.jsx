@@ -1,6 +1,7 @@
 import {
   CircularProgress,
   CircularProgressLabel,
+  Progress,
   Text,
 } from "@chakra-ui/react";
 import React from "react";
@@ -30,6 +31,7 @@ const Highlighted_container = ({ userFood }) => {
 
   return (
     <div container={styles.Highlightedcontainer}>
+
       <div
         style={{
           display: "flex",
@@ -178,7 +180,7 @@ const Highlighted_container = ({ userFood }) => {
               })}
           </div>
        </div>
-          
+      
       </div>
     </div>
   );

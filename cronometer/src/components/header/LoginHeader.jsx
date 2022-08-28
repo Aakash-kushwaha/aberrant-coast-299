@@ -17,13 +17,13 @@ const LoginHeader=()=>{
     <Popover trigger='hover' placement='bottom-end' size='lg'>
         <PopoverTrigger>
         <Box boxSize='200px' height='60px' position={'absolute'} top='10px' left='20px'>
-       <Flex gap='10px'> <Image src='https://cdn1.cronometer.com/logos/cronometer-logo-orange.png' alt='logo'/>
+       <Flex gap='10px' mt={"-1rem"}> <Image src='https://cdn1.cronometer.com/logos/cronometer-logo-orange.png' alt='logo'/>
         <Box margin={'auto'}><IoMdArrowDropdown color='orange'/></Box></Flex>
         </Box>
         </PopoverTrigger>
-        <PopoverContent >
+        <PopoverContent mt={"-2rem"}>
             <PopoverArrow />
-            <PopoverBody>
+            <PopoverBody >
                 <Flex gap='10px'>
                     <VStack>
                         <p style={{fontSize:'12px',color:'grey'}}>Signed in as : shreeprada</p>
@@ -64,7 +64,7 @@ const LoginHeader=()=>{
     
     <Tabs align='center' variant='enclosed' colorScheme={'orange'} isManual>
         <TabList>
-            <Tab>Diary</Tab>
+            <Tab onClick={()=>navigate("/home")}>Diary</Tab>
             <Tab>Trends</Tab>
             <Tab>Foods</Tab>
             <Tab>Settings</Tab>
@@ -73,13 +73,12 @@ const LoginHeader=()=>{
         </TabList>
         <TabPanels>
             <TabPanel>
-              <Addfood></Addfood>
+
             </TabPanel>
             <TabPanel>
                 {/* <Trends/> */}
             </TabPanel>
             <TabPanel>
-                <p>Food</p>
             </TabPanel>
             <TabPanel>
                 <Settings/>

@@ -1,4 +1,4 @@
-import { Box, Button, Image, Input } from "@chakra-ui/react";
+import { Box, Button, Image, Input, Progress } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

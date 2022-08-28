@@ -21,7 +21,7 @@ const Settings = () => {
     <Tabs variant='enclosed' size='sm' align='center'>
   <TabList>
     <Tab>Account</Tab>
-    <Tab>Profile+Targets</Tab>
+    <Tab>Profile+Target</Tab>
     <Tab>Target Scheduler</Tab>
     <Tab>Fasting</Tab>
     <Tab>Display</Tab>
