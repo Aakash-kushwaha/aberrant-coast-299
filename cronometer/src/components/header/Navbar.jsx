@@ -11,14 +11,14 @@ const Navbar = () => {
       <Box
         display={"flex"}
         alignItems={"center"}
-        width={{ base: "100%", sm: "95%", md: "90%", lg: "95%" }}
+        width={{ base: "100%", sm: "95%", md: "90%", lg: "90%" }}
         height="fit-content"
         m="1% auto"
         pb={"2%"}
-        borderBottom={"2px solid gray.300"}
+        // borderBottom={"2px solid gray.300"}
       >
         <Flex
-          w={"95%"}
+          w={"full"}
           justify="space-between"
           align={"center"}
           m="auto"
@@ -26,12 +26,13 @@ const Navbar = () => {
         >
           <Box
             flex={5}
+            w={'full'}
             //  border={"1px solid red"}
           >
             <RouterLink to="/">
               <Image
                 // onClick={()=>navigate('/')}
-                w={{ base: "100%", md: "40%", lg: "40%" }}
+                w={{ base: "100%",sm:'100px', md: "40%", lg: "40%" }}
                 src="https://cdn1.cronometer.com/2021/landing/cronometer-logo.svg"
               />
             </RouterLink>
@@ -40,6 +41,7 @@ const Navbar = () => {
             flex={5}
             justify={"space-around"}
             align="center"
+            gap={{base:3,md:5,lg:10}}
             // border={"1px solid red"}
           >
             <Box flex={1}>
@@ -82,36 +84,36 @@ const Navbar = () => {
             </Box>
             <Box
               _hover={{ color: "#ff763f" }}
-              fontSize={{ base: 8, md: 14, lg: 16 }}
-              flex={1}
+              fontSize={{ base: 10, md: 16, lg: 16 }}
+              flex={0.75}
             >
               <RouterLink to="/support">Support</RouterLink>
             </Box>
             <Box
               _hover={{ color: "#ff763f" }}
-              fontSize={{ base: 8, md: 14, lg: 16 }}
-              flex={1}
+              fontSize={{ base: 10, md: 16, lg: 16 }}
+              flex={0.75}
             >
               {" "}
               <RouterLink to="/blog">Blogs</RouterLink>
             </Box>
             <Box
               _hover={{ color: "#ff763f" }}
-              fontSize={{ base: 8, md: 14, lg: 16 }}
-              flex={1}
+              fontSize={{ base: 10, md: 16, lg: 16 }}
+              flex={0.75}
             >
               {" "}
               <RouterLink to="/">Forums</RouterLink>
             </Box>
             <Box
               _hover={{ color: "#ff763f" }}
-              fontSize={{ base: 8, md: 14, lg: 16 }}
-              flex={1}
+              fontSize={{ base: 10, md: 16, lg: 16 }}
+              flex={0.75}
             >
               {" "}
               <RouterLink to="/about">About</RouterLink>
             </Box>
-            <Box flex={1}>
+            <Box flex={0.75}>
               <RouterLink to="/signup">
                 <Button
                   lineHeight="1.2"

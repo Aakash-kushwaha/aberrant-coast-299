@@ -1,3 +1,8 @@
+
+import Profile from "./pages/Profile/Profile";
+
+
+
 import "./App.css";
 import MainRoute from "./routes/MainRoute";
 import { Provider } from "react-redux";
@@ -9,6 +14,7 @@ function App() {
         <MainRoute />
       </div>
     </Provider>
+
   );
 }
 

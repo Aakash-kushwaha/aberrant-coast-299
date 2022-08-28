@@ -169,10 +169,11 @@ const FirstBox = () => {
               _hover={{
                 transition: "1.2",
               }}
+              p={{base:'24px',md:'15px',lg:'10px'}}
             >
-              <RouterLink to="#">Sign Up - It's Free! </RouterLink>
+              <RouterLink to="/signup">Sign Up - It's Free! </RouterLink>
             </Flex>
-            <Flex p={"1%"} w={"55%"} bg={"blue.500"} color="white">
+            <Flex p={"2%"} w={"55%"} bg={"blue.500"} borderRadius='5px' color="white">
               <Text fontSize={{base:12,md:16,lg:16}}>
                 Already have an account? <RouterLink to="#">Log in.</RouterLink>
               </Text>
@@ -210,12 +211,13 @@ function SecoundBox() {
           p={2}
           direction={{base:'column',sm:'column',md:'row',lg:"row"}}
           justify="space-evenly"
-          gap={{base:"3%",sm:'3%',md:'2%',lg:"2%"}}
+          gap={{base:"20px",md:'2%',lg:"2%"}}
+          // ml={{base:45,md:0,lg:0}}
         >
-          <Box h={"100%"}>
+          <Box h={"100%"} >
             <Image
               h={"70%"}
-              w={"70%"}
+              w={{base:'100%',md:"70%",lg:'70%'}}
               alt="WOMEN'S HEALTH"
               src="https://cdn1.cronometer.com/2021/landing/media-mention-2.svg"
             />
@@ -223,7 +225,7 @@ function SecoundBox() {
           <Box>
             <Image
               h={"70%"}
-              w={"70%"}
+              w={{base:'100%',md:"70%",lg:'70%'}}
               alt="LIFE HACKER"
               src="https://cdn1.cronometer.com/2021/landing/media-mention-1.svg"
             />
@@ -231,7 +233,7 @@ function SecoundBox() {
           <Box>
             <Image
               h={"70%"}
-              w={"70%"}
+              w={{base:'100%',md:"70%",lg:'70%'}}
               alt="MEN'S JOURANAL"
               src="https://cdn1.cronometer.com/2021/landing/media-mention-3.svg"
             />
@@ -242,7 +244,7 @@ function SecoundBox() {
             {" "}
             Available on Web, iOS and Android
           </Text>
-          <Flex direction={{base:'column',sm:'column',md:'row',lg:"row"}} gap='20px'>
+          <Flex direction={{base:'column',md:'row',lg:"row"}} align='center' gap='20px'>
             <Box h={"50px"} w="200px" borderRadius={5}>
               <Image
                 w={"100%"}
@@ -285,7 +287,7 @@ function DiscoverThird() {
           lineHeight={"1.8rem"}
           gap="20px"
         >
-          <Heading>Discover your nutrition</Heading>
+          <Heading fontSize={{base:20,md:26,lg:30}}>Discover your nutrition</Heading>
           <Text fontSize={{base:16,md:20,lg:20}}>
             Cronometer encourages you to not just count your calories
             <br />
@@ -372,7 +374,7 @@ function Healthy() {
           m="20px auto"
         >
           <Box w={"50%"} textAlign="center" lineHeight="2rem">
-            <Heading color="gray.600">Develop healthy habits</Heading>
+            <Heading color="gray.600" fontSize={{base:20,md:25,lg:30}}>Develop healthy habits</Heading>
             <Text fontSize={{base:18,md:22,lg:22}}>
               Count your calories, ensure you're meeting nutrient targets, and
               see your progress over time.
