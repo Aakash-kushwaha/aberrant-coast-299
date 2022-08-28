@@ -18,12 +18,13 @@ import axios from "axios";
 import { appleimg } from "./img";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  fetchExerciseData,
   fetchFoodData,
   getUserFood,
   postUserData,
 } from "../../../../redux/User/action";
 
-function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
+function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate ,name ,handleClick}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [id,setId]= React.useState("")
@@ -31,19 +32,19 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
 //  console.log(id,"id",unitfood,"unit")
   //  console.log(foodData,"foodata")
   const dispatch = useDispatch();
-
-  // console.log(foodData,'uselsector')
+// console.log(handleClick,"handleclick")
+//  foodData && foodData.length>0 && console.log(foodData,'uselsector')
 
   const handleChange = (e) => {
     let foodsearch = e.target.value;
 
     dispatch(fetchFoodData({ foodsearch, tokenfromlocalstorage }));
+    dispatch(fetchExerciseData({foodsearch,tokenfromlocalstorage}))
   };
 
-  const handleClick = (id,unitfood) => {
-    console.log(id,unitfood)
-    dispatch(postUserData({ id, tokenfromlocalstorage, finaldate,unitfood }))
-    .then((res)=>dispatch(getUserFood({ tokenfromlocalstorage, finaldate })))
+  const sendData = (id,unitfood) => {
+   
+ handleClick(id,unitfood)
     
   };
 
@@ -53,8 +54,8 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
 // console.log(unitfood,"foodunit")
   return (
     <>
-      <Button h={"20px"} onClick={onOpen}>
-        Open Modal
+      <Button h={"20px"} mt={".2rem"} onClick={onOpen}>
+        {name}
       </Button>
       <Modal
         finalFocusRef={finalRef}
@@ -63,8 +64,8 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
         size="4xl"
         
       >
-        <ModalOverlay border={"1px solid blue"} />
-        <ModalContent  border={"2px solid black"} height={"md"} >
+        <ModalOverlay  />
+        <ModalContent   height={"md"} >
           <ModalHeader>Add Food to Diary</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -93,17 +94,16 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
                    height={"200px"}
                   style={{ overflow: "scroll", overflowX: "hidden" }}
                 >
-                  {foodData &&
+                  {foodData && foodData.length>0 &&
                     foodData.map((el, index) => {
-                      return (
-                        <Box
+                      return ( 
+                        <Box key={index}
                          cursor={"pointer"}
                           border="1px solid silver"
-                          key={index}
                           onClick={() =>setId(el._id)}
                           _hover={{backgroundColor:"silver"}}
                         >
-                          {el.Food.name}
+                          {el.Food?el.Food.name :el.Exercise?el.Exercise.name:""}
                         </Box>
                       );
                     })}
@@ -112,9 +112,9 @@ function Addfoodmodal({ tokenfromlocalstorage, foodData, finaldate }) {
             </Box>
           </ModalBody>
       
-          <Flex margin={"auto"} >
+          <Flex margin={"auto"} mb={"1rem"}>
             <Input border={"1px solid black"} placeholder="amount / plate / unit / etc" onChange={handleInput}></Input>
-            <Button onClick={()=>handleClick(id,unitfood)}  width={"50px"} bg={"#FF763F"}>
+            <Button onClick={()=>sendData(id,unitfood)}  width={"50px"} bg={"#FF763F"}>
               Add
             </Button>
           </Flex>

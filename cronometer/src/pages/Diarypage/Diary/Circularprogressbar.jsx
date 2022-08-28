@@ -1,3 +1,4 @@
+import { createLocalStorageManager } from '@chakra-ui/react';
 import React from 'react'
 import {
     CircularProgressbar,
@@ -10,10 +11,12 @@ import {
 
 
 const Circularprogressbar = ({heading,percentage,calories,unit}) => {
+// console.log(calories,"calors")
   return (
     <div>
     <div style={{ width:101, height:101,margin:"auto"}}>
-    <CircularProgressbarWithChildren  value={percentage}   
+    <CircularProgressbarWithChildren 
+     value={calories && calories.General && Number(calories.General[0].val)}   
   styles={buildStyles({
     // Rotation of path and trail, in number of turns (0-1)
     rotation: 0.25,
@@ -29,14 +32,14 @@ const Circularprogressbar = ({heading,percentage,calories,unit}) => {
 
     // Can specify path transition in more detail, or remove it entirely
     // pathTransition: 'none',
-
+    // #f9ce6a
     // Colors
     pathColor: `green`,
     // textColor: 'black',
     trailColor: 'whitesmoke',
   })}
    maxValue={100}>
-   <div>{calories}</div>
+   {calories && calories.General && <div>{calories.General[0].val}</div>}
    <div>{unit}</div>
   </CircularProgressbarWithChildren>
     </div>

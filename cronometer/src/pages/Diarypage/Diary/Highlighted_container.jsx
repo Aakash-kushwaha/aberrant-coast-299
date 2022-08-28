@@ -1,102 +1,189 @@
-import React from 'react'
-import Circularprogressbar from './Circularprogressbar'
-import styles from './highlighted.module.css'
-import Highlightednutrients from './Highlightednutrients'
+import {
+  CircularProgress,
+  CircularProgressLabel,
+  Progress,
+  Text,
+} from "@chakra-ui/react";
+import React from "react";
+import {
+  buildStyles,
+  CircularProgressbarWithChildren,
+} from "react-circular-progressbar";
+import Circularprogressbar from "./Circularprogressbar";
+import styles from "./highlighted.module.css";
+import Highlightednutrients from "./Highlightednutrients";
+import Lineprogressbar from "./Lineprogressbar";
 
-let Alcohol = 0
-let Caffeine =0
-let Energy = 0
-let Water = 0
-
-const fakedata = new Array(2).fill(0)
-
-
-
-const Highlighted_container = ({userFood}) => {
-
-   // let newdata=userFood && userFood[0].Food.General
-   // consolelog(newdata,"newsdata")
- userFood &&  console.log("user",userFood)
-
-
+let mineral = [
+  "Fiber",
+  "Iron",
+  "calcium",
+  "Vit. A",
+  "Vit. c",
+  "vit b:12",
+  "vit. k",
+  "Vit. B6",
+];
+const Highlighted_container = ({ userFood }) => {
+  // let newdata=userFood && userFood[0].Food.General
+  // consolelog(newdata,"newsdata")
+  // userFood && console.log("user", userFood);
 
   return (
     <div container={styles.Highlightedcontainer}>
-    <div style={{display:"flex",width:"738px",height:"111px",gap:".5rem"}}>
-         <Circularprogressbar percentage={20} calories={"300 %"} color={"green"} unit={"Kcal"}></Circularprogressbar>
-         <Circularprogressbar percentage={20} calories={"234 %"} unit={"g"}></Circularprogressbar>
-         <Circularprogressbar percentage={50} calories={"423 %"} unit={"Iron"}></Circularprogressbar>
-         <Circularprogressbar percentage={70} calories={"534 %"} unit={"calcium"}></Circularprogressbar>
-         <Circularprogressbar percentage={10} calories={"123 %"} unit={"Vit. A"}></Circularprogressbar>
-         <Circularprogressbar percentage={30} calories={"563 %"} unit={"Vit. C"}></Circularprogressbar>
-         <Circularprogressbar percentage={90} calories={"634 %"} unit={"Vit12"}></Circularprogressbar>
-   
-    </div>
-       <div className={styles.Highlighted_vitamins}>
-       <div>
-        <div className={styles.general}>
-          <h3>General</h3>
-         {
-              
-         }
-        </div>
-        <div className={styles.general}>
-          <h3>Carbohydrates</h3>
-         {
-        userFood && userFood.map((el)=>{
-            return <div >
-             <Highlightednutrients 
-             vitamin={el.General}  value={50} unit={(el.Food.Carbohydrates.Carbs.unit)} barcolor={"green"} totalpercent={Number(el.Food.Carbohydrates.Carbs.val)} width={"100px"}>
 
-             </Highlightednutrients>
-             </div>
-          })
-         }
-        </div>
-        <div className={styles.general}>
-          <h3>Lipids</h3>
-         {
-        userFood && userFood.map((el)=>{
-            return <div >
-             <Highlightednutrients 
-             vitamin={el.General}  value={50} unit={"kcal"} barcolor={"green"} totalpercent={30} width={"100px"}>
+      <div
+        style={{
+          display: "flex",
+          height: "111px",
+          gap: ".5rem",
+          // border:"1px solid silver"
+        }}
+      >
+        {userFood &&
+          userFood.Total &&
+          userFood.Total.Lipids.map((el,index) => {
+            if (el.name == "TransFats") return;
+            return (
+              <CircularProgress
+                value={Number(el.val)}
+                key={index}
+                color={
+                  Math.floor(Math.random() * 100) % 2 == 0 ? "#f9ce6a" : "teal"
+                }
+                size="102px"
+                thickness="10px"
+              >
+                <CircularProgressLabel>
+                  <Text fontSize={"16px"}> {el.val}%</Text>
 
-             </Highlightednutrients>
-             </div>
-          })
-         }
+                  <Text fontSize={"16px"}>
+                    {mineral[Math.floor(Math.random() * 10)]}
+                  </Text>
+                </CircularProgressLabel>
+              </CircularProgress>
+            );
+          })}
+      </div>
+      <div className={styles.Highlighted_vitamins}>
+        <div>
+          <div className={styles.general}>
+            <div className={styles.mineralHeading}>General</div>
+            {userFood &&
+              userFood.Total &&
+              userFood.Total.General.map((el,index) => {
+               {/* console.log(typeof Number(el.val)) */}
+                return (
+                  <Highlightednutrients
+                    vitamin={el.name}
+                    value={el.val}
+                    key={index}
+                    unit={el.unit}
+                    totalpercent={Number(el.val)}
+                    width={"100px"}
+                  ></Highlightednutrients>
+                );
+              })}
+          </div>
+          <div className={styles.general}>
+          <div className={styles.mineralHeading}>
+            Carbohydrates
+          </div>
+            {userFood &&
+              userFood.Total &&
+              userFood.Total.Carbohydrates.map((el,index) => {
+               {/* console.log(typeof Number(el.val)) */}
+                return (
+                  <Highlightednutrients
+                    vitamin={el.name}
+                    value={el.val}
+                    key={index}
+                    unit={el.unit}
+                    totalpercent={Number(el.val)}
+                    width={"100px"}
+                  ></Highlightednutrients>
+                );
+              })}
+          </div>
+          <div className={styles.general}>
+          <div className={styles.mineralHeading}>  Lipids </div>
+            {userFood &&
+              userFood.Total &&
+              userFood.Total.Lipids.map((el,index) => {
+               {/* console.log(typeof Number(el.val)) */}
+                return (
+                  <Highlightednutrients
+                    vitamin={el.name}
+                    value={el.val}
+                    key={index}
+                    unit={el.unit}
+                    totalpercent={Number(el.val)}
+                    width={"100px"}
+                  ></Highlightednutrients>
+                );
+              })}
+          </div>
+          <div className={styles.general}>
+          <div className={styles.mineralHeading}> Protein </div>
+            {userFood &&
+              userFood.Total &&
+              userFood.Total.Protein.map((el,index) => {
+               {/* console.log(typeof Number(el.val)) */}
+                return (
+                  <Highlightednutrients
+                    vitamin={el.name}
+                    value={el.val}
+                    key={index}
+                    unit={el.unit}
+                    totalpercent={Number(el.val)}
+                    width={"100px"}
+                  ></Highlightednutrients>
+                );
+              })}
+          </div>
         </div>
-        <div className={styles.general}>
-          <h3>Protein</h3>
-         {
-        userFood && userFood.map((el)=>{
-            return <div >
-             <Highlightednutrients 
-             vitamin={el.General}  value={50} unit={"kcal"} barcolor={"green"} totalpercent={30} width={"100px"}>
-
-             </Highlightednutrients>
-             </div>
-          })
-         }
-        </div>
-       </div>
        <div>
        <div className={styles.general}>
-          <h3>vitamins</h3>
-         {
-        userFood && userFood.map((el)=>{
-            return <div >
-             <Highlightednutrients 
-             vitamin={el.General}  value={50} unit={"kcal"} barcolor={"green"} totalpercent={30} width={"100px"}>
-
-             </Highlightednutrients>
-             </div>
-          })
-         }
-        </div>
-        </div>
+          <div className={styles.mineralHeading}> Vitamins </div>
+            {userFood &&
+              userFood.Total &&
+              userFood.Total.Vitamins.map((el,index) => {
+               {/* console.log(typeof Number(el.val)) */}
+                return (
+                  <Highlightednutrients
+                    vitamin={el.name}
+                    key={index}
+                    value={el.val}
+                    unit={el.unit}
+                    totalpercent={Number(el.val)}
+                    width={"100px"}
+                  ></Highlightednutrients>
+                );
+              })}
+          </div>
+          <div className={styles.general}>
+          <div className={styles.mineralHeading}> Minerals </div>
+            {userFood &&
+              userFood.Total &&
+              userFood.Total.Minerals.map((el,index) => {
+               {/* console.log(typeof Number(el.val)) */}
+                return (
+                  <Highlightednutrients
+                    vitamin={el.name}
+                    value={el.val}
+                    unit={el.unit}
+                    key={index}
+                    totalpercent={Number(el.val)}
+                    width={"100px"}
+                  ></Highlightednutrients>
+                );
+              })}
+          </div>
        </div>
-    </div> )
-}
+      
+      </div>
+    </div>
+  );
+};
 
-export default Highlighted_container
+export default Highlighted_container;

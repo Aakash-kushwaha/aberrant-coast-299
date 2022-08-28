@@ -1,6 +1,6 @@
 
 .Highlighted_vitamins{
-    border: 1px solid black;
+    border: 1px solid silver;
     margin-top: 3rem;
     display: flex;
     gap:1rem;
@@ -9,10 +9,17 @@
 }
 .general{
     /* height: 142px; */
-    width:354px;
-    border:5px solid red
+    width:370px;
+    /* border:5px solid red; */
+    border:1px solid silver;
+    padding:-1rem;
+    margin-bottom: 1rem;
 }
 
-.general >h3{
+
+.mineralHeading{
     text-align: center;
+    font-weight: 600;
+    padding: .5rem;
+    background-color: whitesmoke;
 }

@@ -25,7 +25,7 @@ const fetchFoodDataFailed =(payload)=>{
 
 const fetchFoodData=({foodsearch,tokenfromlocalstorage})=>(dispatch)=>{
     dispatch(fetchFoodDataRequest())
-    axios.get("http://localhost:8080/food",{
+    axios.get("/food",{
         params:{
           q:foodsearch
         },
@@ -65,7 +65,7 @@ const postUserData=({id,tokenfromlocalstorage,finaldate,unitfood})=>(dispatch)=>
     dispatch(postFoodDataRequest())
    return axios({
         method: 'post',
-        url: `http://localhost:8080/food/${id}`,
+        url: `/food/${id}`,
         headers:{
           Authorization:`Bearer ${tokenfromlocalstorage}`
         },
@@ -110,7 +110,7 @@ const getUserFood=({tokenfromlocalstorage,finaldate})=>(dispatch)=>{
     dispatch(getUserFoodRequest())
     axios({
         method: 'get',
-        url: `http://localhost:8080/food/userdashboard`,
+        url: `/food/userdashboard`,
         headers:{
           Authorization:`${finaldate} ${tokenfromlocalstorage}`,
         },
@@ -121,13 +121,86 @@ const getUserFood=({tokenfromlocalstorage,finaldate})=>(dispatch)=>{
 
 
 
+const fetchExerciseDataRequest =()=>{
+    return{
+        type:types.FETCH_EXERCISE_REQUEST
+    }
+}
+
+const fetchExerciseDataSuccess =(payload)=>{
+    return{
+        type:types.FETCH_EXERCISE_SUCCESS,
+        payload
+    }
+}
+
+const fetchExerciseDataFailed =(payload)=>{
+    console.log(payload,"exercise")
+    return{
+        type:types.FETCH_EXERCISE_FAILED,
+        payload
+    }
+}
 
 
+const fetchExerciseData=({foodsearch,tokenfromlocalstorage})=>(dispatch)=>{
+    dispatch(fetchExerciseDataRequest())
+return  axios.get("/exercise",{
+        params:{
+          q:foodsearch
+        },
+        headers:{
+            Authorization:`Bearer ${tokenfromlocalstorage}`
+        }
+    })
+  .then((res)=>dispatch(fetchExerciseDataSuccess(res)))
+  .catch((err)=>dispatch(fetchExerciseDataFailed(err)))
+}
 
 
+const postExerciseDataRequest =()=>{
+    return{
+        type:types.POST_EXERCISE_REQUEST
+    }
+}
+
+const postExerciseDataSuccess =(payload)=>{
+    return{
+        type:types.POST_EXERCISE_SUCCESS,
+        payload
+    }
+}
+
+const postExerciseDataFailed =(payload)=>{
+    console.log(payload,"exercise")
+    return{
+        type:types.POST_EXERCISE_FAILED,
+        payload
+    }
+}
+
+
+const postExerciseData=({id,tokenfromlocalstorage,finaldate})=>(dispatch)=>{
+    // console.log(unitfood,"date")
+    dispatch(postFoodDataRequest())
+   return axios({
+        method: 'post',
+        url: `/exercise/${id}`,
+        headers:{
+          Authorization:`Bearer ${tokenfromlocalstorage}`
+        },
+        data:{
+          date:finaldate,
+        }
+      })
+  .then((res)=>dispatch(getUserFood({tokenfromlocalstorage,finaldate})))
+  .catch((err)=>console.log(err,"er"))
+}
 
 export {
     fetchFoodData,
     postUserData,
-    getUserFood
+    getUserFood,
+    fetchExerciseData,
+    postExerciseData
 }

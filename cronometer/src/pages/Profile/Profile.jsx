@@ -5,6 +5,7 @@ import {Box, Button, Input, Select,Text,label,Checkbox,Stack,Radio,RadioGroup,
   SliderFilledTrack,
   SliderThumb,
   SliderMark} from "@chakra-ui/react"
+import LoginHeader from '../../components/header/LoginHeader'
 
   
 
@@ -17,7 +18,7 @@ const Profile = () => {
   }
   return (
     <div>
-      <Box width={{base:"30%",md:"50%",lg:"85%"}} marginTop="50px"marginRight="0px"marginLeft="95px" display="flex" justifyContent="space-between">
+    {/* <LoginHeaderz></LoginHeaderz> */}    <Box width={{base:"30%",md:"50%",lg:"85%"}} marginTop="50px"marginRight="0px"marginLeft="95px" display="flex" justifyContent="space-between">
       <Box >
         <Text fontSize={{ base: '18px', md: '15px', lg: '22px' }}><strong>Profile and Targets</strong></Text>
         <Text fontSize={{ base: '15px', md: '12px', lg: '18px' }}>Set up your profile so we can accurately calculate your targets.</Text>
@@ -146,7 +147,7 @@ const Profile = () => {
           <Text fontSize={{ base: '12px',sm:'10px', md: '15px', lg: '20px' }} >Variable Calories Burned</Text>
           <Text fontSize="10px">Choose how you would like your diary entries to contribute to your TDEE.</Text>
         </Box>
-        <Box display="flex" display="flex"justifyContent="space-around">
+        <Box display="flex" justifyContent="space-around">
             <Box marginTop="15px">
             <Checkbox colorScheme='orange' >Include Exercises</Checkbox>
             <Text fontSize="10" marginLeft="22px">Select this option to include exercise in your energy budget calculations.</Text>

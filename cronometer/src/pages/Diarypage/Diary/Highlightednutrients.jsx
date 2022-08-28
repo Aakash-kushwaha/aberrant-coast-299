@@ -14,8 +14,8 @@ const Highlightednutrients = ({
   return (
     <>
     <div styles={styles.container}>
-      <div style={{padding:"0.4rem", display: "flex", justifyContent: "space-between" }}>
-        <div style={{ width: "100px" }}>
+      <div style={{padding:"2px", display: "flex", justifyContent: "space-between" }}>
+        <div style={{ width: "100px" ,paddingLeft:"9px"}}>
           {vitamin}
         </div>
         <div
@@ -31,9 +31,9 @@ const Highlightednutrients = ({
         <div>
           <h3 className={styles.percentcount}>{totalpercent}%</h3>
           <Progress
-            colorScheme={barcolor ? barcolor : "green"}
-            height="32px"
-            value={totalpercent}
+            colorScheme={  Math.floor(Math.random() * 100) % 2 == 0 ? "yellow" : "green"}
+            height="22px"
+            value={totalpercent<0?20:totalpercent}
             maxvalue={400}
             width={width}
           />
