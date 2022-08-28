@@ -124,57 +124,57 @@ export const Support = () => {
         </Text>
         <Flex direction='column'  justify='center' align='center' p={4} >
           <Flex w={'90%'} p="10px 20px" justify="space-between" m='10px 0px' borderBottom={'1px solid gray'}>
-            <VStack >
-              <Text textAlign={'left'} >Pro Account Setting</Text>
-              <Text textAlign={'left'} fontSize={12}>Pro-HIPPA</Text>
-            </VStack>
+            <Flex direction='column' textAlign={'left'} >
+              <Text  >Pro Account Setting</Text>
+              <Text  fontSize={12} color='#ff763f'>Pro-HIPPA</Text>
+            </Flex>
             <HStack>
               <Text>Artical Created 2 days ago</Text>
-              <ChatIcon />
+              <ChatIcon color='#ff763f'/>
             </HStack>
           </Flex>
              
           <Flex w={'90%'} p="10px 20px" justify="space-between" m='10px 0px' borderBottom={'1px solid gray'}>
-            <VStack>
-              <Text textAlign={'left'}>Clients</Text>
-              <Text textAlign={'left'} fontSize={12}>Pro-messaging</Text>
-            </VStack>
+            <Flex direction='column' textAlign={'left'}>
+              <Text >Clients</Text>
+              <Text  fontSize={12} color='#ff763f'>Pro-messaging</Text>
+            </Flex>
             <HStack>
               <Text>Artical Created 7 months ago</Text>
-              <ChatIcon />
+              <ChatIcon color='#ff763f' />
             </HStack>
           </Flex>
 
           <Flex w={'90%'} p="10px 20px" justify="space-between" m='10px 0px' borderBottom={'1px solid gray'}>
-            <VStack>
-              <Text textAlign={'left'}>Widgets</Text>
-              <Text textAlign={'left'} fontSize={12}>Android Home Screen Widgets</Text>
-            </VStack>
+            <Flex direction='column' textAlign={'left'}>
+              <Text >Widgets</Text>
+              <Text fontSize={12} color='#ff763f'>Android Home Screen Widgets</Text>
+            </Flex>
             <HStack>
               <Text>Artical Created 7 months ago</Text>
-              <ChatIcon />
+              <ChatIcon color='#ff763f' />
             </HStack>
           </Flex>
 
           <Flex w={'90%'} p="10px 20px" justify="space-between" m='10px 0px' borderBottom={'1px solid gray'}>
-            <VStack>
-              <Text textAlign={'left'}>Foods Tabs</Text>
-              <Text textAlign={'left'} fontSize={12}>Food</Text>
-            </VStack>
+            <Flex direction='column' textAlign={'left'}>
+              <Text >Foods Tabs</Text>
+              <Text  fontSize={12} color='#ff763f'>Food</Text>
+            </Flex>
             <HStack>
               <Text>Artical Created 9 months ago</Text>
-              <ChatIcon />
+              <ChatIcon color='#ff763f' />
             </HStack>
           </Flex>
 
           <Flex w={'90%'} p="10px 10px" justify="space-between" m='10px 0px' borderBottom={'1px solid gray'}>
-            <VStack >
-              <Text textAlign={'left'}>Settings</Text>
-              <Text textAlign={'left'} fontSize={12}>Target Scheduler</Text>
-            </VStack>
+            <Flex direction='column' textAlign={'left'} >
+              <Text >Settings</Text>
+              <Text  fontSize={12} color='#ff763f'>Target Scheduler</Text>
+            </Flex>
             <HStack>
               <Text>Artical Created 10 months ago</Text>
-              <ChatIcon />
+              <ChatIcon color='#ff763f' />
             </HStack>
           </Flex>
 

@@ -34,7 +34,7 @@ const MainRoute = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/forgotpassword" element={<Forget />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
