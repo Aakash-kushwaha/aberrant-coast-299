@@ -2,7 +2,7 @@ const express = require("express");
 const { authentication } = require("../Middlewares/authentication");
 const { UserExerciseModel } = require("../Models/exercisebydate.model");
 const { FoodModel } = require("../Models/fooddata.model");
-const { UserModel } = require("../Models/user.Model");
+const { UserModel } = require("../Models/user.model");
 const { UserFoodModel } = require("../Models/userfoodbydate.model");
 const { TotalSum } = require("./totalsumofuserdata");
 
