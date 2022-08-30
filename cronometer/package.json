@@ -26,11 +26,8 @@
     "reactjs-popup": "^2.0.5",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
-<<<<<<< HEAD
     "typescript": "^4.8.2",
-=======
     "vercel": "^28.2.0",
->>>>>>> 6ccba0c0f4c89b3c6813217fa9406d2ebb91561e
     "web-vitals": "^2.1.4"
   },
   "scripts": {
