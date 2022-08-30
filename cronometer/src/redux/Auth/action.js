@@ -12,8 +12,7 @@ export const SignupHandler = (user_data) => (dispatch) => {
 
 export const LoginHandler = (user_data) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
-  axios
-    .post("/login", user_data)
+ return axios.post("/login", user_data)
     .then((r) => dispatch({ type: types.LOGIN_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: types.LOGIN_FAILED, payload: e.data }));
 };

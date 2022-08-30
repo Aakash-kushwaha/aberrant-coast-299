@@ -158,26 +158,26 @@ return  axios.get("/exercise",{
 }
 
 
-const postExerciseDataRequest =()=>{
-    return{
-        type:types.POST_EXERCISE_REQUEST
-    }
-}
+// const postExerciseDataRequest =()=>{
+//     return{
+//         type:types.POST_EXERCISE_REQUEST
+//     }
+// }
 
-const postExerciseDataSuccess =(payload)=>{
-    return{
-        type:types.POST_EXERCISE_SUCCESS,
-        payload
-    }
-}
+// const postExerciseDataSuccess =(payload)=>{
+//     return{
+//         type:types.POST_EXERCISE_SUCCESS,
+//         payload
+//     }
+// }
 
-const postExerciseDataFailed =(payload)=>{
-    console.log(payload,"exercise")
-    return{
-        type:types.POST_EXERCISE_FAILED,
-        payload
-    }
-}
+// const postExerciseDataFailed =(payload)=>{
+//     console.log(payload,"exercise")
+//     return{
+//         type:types.POST_EXERCISE_FAILED,
+//         payload
+//     }
+// }
 
 
 const postExerciseData=({id,tokenfromlocalstorage,finaldate})=>(dispatch)=>{

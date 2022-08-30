@@ -6,28 +6,29 @@ import Homepage from "../pages/homepage/Homepage";
 import Signup from "../pages/signup/Signup";
 import { Support } from "../pages/Support/Support";
 import { Blog } from "../pages/Blogs/Blog";
-import Navbar from "../components/header/Navbar";
 import Login from "../pages/Login/Login";
-import { Box, Progress } from "@chakra-ui/react";
-import LoginHeader from "../components/header/LoginHeader";
-import Footer from "../components/footer/footer";
 import Forget from "../pages/ForgetPassword/forget";
 import Profile from "../pages/Profile/Profile";
 import PrivateRoute from "./PrivateRoute";
+import { useSelector } from "react-redux";
 
 
 const MainRoute = () => {
-  let token = JSON.parse(localStorage.getItem("token"))
-  console.log(token,"token")
+  let token = useSelector((state)=>state.authreducer.token)
+  React.useEffect(()=>{
+
+  },[token])
+  console.log("hello",token)
   return (
     <div>
 
-{token?<LoginHeader></LoginHeader>:<Navbar></Navbar>}
+{/* <Navbar></Navbar> */}
     
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<PrivateRoute><Addfood></Addfood></PrivateRoute>}></Route>
+        <Route path="/diary" element={<Addfood></Addfood>}></Route>
         <Route path="/support" element={<Support />} />
         <Route path="/blog" element={<Blog />} /> 
         <Route path="/signup" element={<Signup />} />

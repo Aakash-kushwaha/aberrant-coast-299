@@ -24,7 +24,7 @@ const Homepage = () => {
       p={"2%"}
       h={"fit-content"}
     >
-     
+     <Navbar></Navbar>
       <Box>
         <FirstBox />
       </Box>
