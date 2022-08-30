@@ -45,7 +45,11 @@ const Energysummaryprogressbar = (data) => {
 
               <div>
                 <div className={styles.caloriesremain}>
-                  <div className={styles.caloriesdetails}>-4534</div>
+                  <div className={styles.caloriesdetails}>{Data && Data.General && Number(Data.General[1].val)
+                  &&
+                  (Number(Data.General[1].val)*25).toFixed(2)
+
+                  }</div>
                   <div className={styles.caloriesdetailstext}>calories </div>
                   <div className={styles.caloriesdetailstext}>remaining</div>
                 </div>

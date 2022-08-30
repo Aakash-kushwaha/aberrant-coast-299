@@ -25,6 +25,10 @@ const Homepage = () => {
       h={"fit-content"}
       mt={{ base: "50px", md: "50px", lg: "0px" }}
     >
+<<<<<<< HEAD
+=======
+     <Navbar></Navbar>
+>>>>>>> 6ccba0c0f4c89b3c6813217fa9406d2ebb91561e
       <Box>
         <FirstBox />
       </Box>

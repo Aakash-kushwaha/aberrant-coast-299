@@ -3,16 +3,21 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel,Image,Box,Flex,VStack,Button } 
 import {Popover,PopoverTrigger,PopoverContent,PopoverHeader,PopoverBody,PopoverFooter,
     PopoverArrow,PopoverCloseButton,PopoverAnchor,
   } from '@chakra-ui/react'
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import {IoMdArrowDropdown} from "react-icons/io"
 import Diary from "../../pages/Diarypage/Diary/Diary";
 // import Trends from "../../pages/trends/Trends";
 import Settings from "../../pages/settings/Settings";
 import Plans from "../../pages/plans/Plans";
-import Help from "../../pages/help/Help";
 import Addfood from "../../pages/Diarypage/Diary/Addfood/Addfood";
+
 const LoginHeader=()=>{
     const navigate=useNavigate();
+    const handleLogout=()=>{
+        localStorage.removeItem("token")
+        window.location.reload(true)
+    }
+
     return(<>
     <Popover trigger='hover' placement='bottom-end' size='lg'>
         <PopoverTrigger>
@@ -42,7 +47,7 @@ const LoginHeader=()=>{
                         </Box>
                     </VStack>
                     <VStack>
-                        <Button colorScheme='orange' variant='outline' size='xs'>Logout</Button>
+                        <Button colorScheme='orange' variant='outline' size='xs' onClick={handleLogout}>Logout</Button>
                         <Box border='1px solid #eeeeee' padding='5px 10px' backgroundColor={'#f3f3f3'} _hover={{border:'1px solid orange'}} cursor='pointer' onClick={()=>{
                             navigate("/plans");
                         }}>
@@ -73,7 +78,6 @@ const LoginHeader=()=>{
         </TabList>
         <TabPanels>
             <TabPanel>
-
             </TabPanel>
             <TabPanel>
                 {/* <Trends/> */}

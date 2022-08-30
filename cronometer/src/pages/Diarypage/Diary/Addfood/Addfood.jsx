@@ -46,8 +46,6 @@ const Addfood = () => {
   };
 // console.log(finaldate,"finaldate")
 let tokenfromlocalstorage =JSON.parse(localStorage.getItem("token"))
-console.log(tokenfromlocalstorage,"token")
-
 
   const [exser, setExer] = React.useState([]);
   const foodData = useSelector((store) => store.userreducer.Food);
@@ -99,6 +97,7 @@ console.log(tokenfromlocalstorage,"token")
   };
 
   return (<>
+  <LoginHeader></LoginHeader>
     <div className={styles.maincontainer}>
         
       <div className={styles.date}>
