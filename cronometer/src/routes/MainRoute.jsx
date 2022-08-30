@@ -15,28 +15,31 @@ import Forget from "../pages/ForgetPassword/forget";
 import Profile from "../pages/Profile/Profile";
 import PrivateRoute from "./PrivateRoute";
 
-
 const MainRoute = () => {
-  let token = JSON.parse(localStorage.getItem("token"))
-  console.log(token,"token")
+  let token = JSON.parse(localStorage.getItem("token"));
+  console.log(token, "token");
   return (
     <div>
-
-{token?<LoginHeader></LoginHeader>:<Navbar></Navbar>}
-    
+      <Navbar />
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Homepage />} />
-        <Route path="/home" element={<PrivateRoute><Addfood></Addfood></PrivateRoute>}></Route>
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <Addfood></Addfood>
+            </PrivateRoute>
+          }
+        ></Route>
         <Route path="/support" element={<Support />} />
-        <Route path="/blog" element={<Blog />} /> 
+        <Route path="/blog" element={<Blog />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgotpassword" element={<Forget />} />
-         <Route path="/profile" element={<Profile></Profile>}></Route>
+        <Route path="/profile" element={<Profile></Profile>}></Route>
       </Routes>
       {/* <Footer /> */}
-
     </div>
   );
 };

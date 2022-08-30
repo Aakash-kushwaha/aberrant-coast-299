@@ -72,7 +72,7 @@ function TestimonialCard(props) {
         <chakra.p
           fontFamily={"Inter"}
           fontWeight={"medium"}
-          fontSize={{base:15,md:30,lg:30}}
+          fontSize={{ base: 15, md: 30, lg: 30 }}
           lineHeight="2rem"
           color="#ff763f"
           pb={4}
@@ -84,7 +84,7 @@ function TestimonialCard(props) {
       <Flex direction="column" flex={5} gap="1%">
         <chakra.p
           fontFamily={"'Open Sans', sans-serif"}
-          fontSize={{base:10,md:18,lg:18}}
+          fontSize={{ base: 10, md: 18, lg: 18 }}
           color="#404040"
           lineHeight={"1.5rem"}
         >
@@ -115,7 +115,7 @@ export const Testimonial = () => {
       <Box width={{ base: "full", sm: "lg", lg: "xl" }} margin={"auto"}>
         <chakra.h1
           py={5}
-          fontSize={{base:22,md:48,lg:48}}
+          fontSize={{ base: 22, md: 48, lg: 48 }}
           fontFamily={"Work Sans"}
           fontWeight={"bold"}
           color={useColorModeValue("gray.700", "gray.50")}
@@ -127,7 +127,7 @@ export const Testimonial = () => {
           width={"70%"}
           fontFamily={"Inter"}
           fontWeight={"medium"}
-          fontSize={{base:14,md:25,lg:25}}
+          fontSize={{ base: 14, md: 25, lg: 25 }}
           color={useColorModeValue("gray.500", "gray.400")}
         >
           Check us out in your app store.
@@ -140,7 +140,7 @@ export const Testimonial = () => {
         mx={"auto"}
       >
         {testimonials.map((cardInfo, index) => (
-          <TestimonialCard {...cardInfo} index={index} />
+          <TestimonialCard key={index} {...cardInfo} index={index} />
         ))}
       </SimpleGrid>
       <Box></Box>

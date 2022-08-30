@@ -1,149 +1,313 @@
-import React from "react";
-import { Box, Flex, Image, Button, Text } from "@chakra-ui/react";
-import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import {
+  Box,
+  Flex,
+  Text,
+  IconButton,
+  Button,
+  Stack,
+  Collapse,
+  Icon,
+  Link,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  useColorModeValue,
+  useBreakpointValue,
+  useDisclosure,
+  Image,
+} from "@chakra-ui/react";
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
+import { Link as RoutingLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+export default function Navbar() {
+  const { isOpen, onToggle } = useDisclosure();
+  const navigate = useNavigate();
 
-const Navbar = () => {
-  // const navigate= useNavigate();
+  const GotoReg = () => {
+    navigate("/signup");
+  };
   return (
-    <>
-      <Box
-        display={"flex"}
-        alignItems={"center"}
-        width={{ base: "100%", sm: "95%", md: "90%", lg: "90%" }}
-        height="fit-content"
-        m="1% auto"
-        pb={"2%"}
-        // borderBottom={"2px solid gray.300"}
+    <Box position={"fixed"} w={"100%"} top="0" left="0" right="0" zIndex="9999">
+      <Flex
+        bg={useColorModeValue("white", "gray.800")}
+        color={useColorModeValue("gray.600", "white")}
+        minH={"60px"}
+        py={{ base: 2 }}
+        px={{ base: 4 }}
+        borderBottom={1}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.900")}
+        align={"center"}
       >
         <Flex
-          w={"full"}
-          justify="space-between"
-          align={"center"}
-          m="auto"
-          // border={"1px solid black"}
+          flex={{ base: 1, md: "auto" }}
+          ml={{ base: -2 }}
+          display={{ base: "flex", md: "none" }}
         >
-          <Box
-            flex={5}
-            w={'full'}
-            //  border={"1px solid red"}
-          >
-            <RouterLink to="/">
-              <Image
-                // onClick={()=>navigate('/')}
-                w={{ base: "100%",sm:'100px', md: "40%", lg: "40%" }}
-                src="https://cdn1.cronometer.com/2021/landing/cronometer-logo.svg"
-              />
-            </RouterLink>
-          </Box>
-          <Flex
-            flex={5}
-            justify={"space-around"}
-            align="center"
-            gap={{base:3,md:5,lg:10}}
-            // border={"1px solid red"}
-          >
-            <Box flex={1}>
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  rightIcon={<ChevronDownIcon />}
-                  fontSize={{ base: 12, md: 16, lg: 16 }}
-                >
-                  Products
-                </MenuButton>
-                <MenuList
-                  fontSize={{ base: "0.3rem", md: "0.7rem", lg: "0.7rem" }}
-                >
-                  <MenuItem minH="80px">
-                    <Image
-                      boxSize={{base:'1rem',md:"1.6rem",lg:"2rem"}}
-                      borderRadius="full"
-                      src="https://cdn1.cronometer.com/2021/landing/crono-icon-main-nav.svg"
-                      alt="Fluffybuns the destroyer"
-                      mr={{base:5,md:8,lg:12}}
-                    />
-                    <span>
-                      Cronometer <br /> <Text>For Individuals</Text>
-                    </span>
-                  </MenuItem>
-                  <MenuItem minH="80px">
-                    <Image
-                      boxSize={{base:'1rem',md:"1.6rem",lg:"2rem"}}
-                      borderRadius="full"
-                      src="https://cdn1.cronometer.com/2021/landing/pro-icon-main-nav.svg"
-                      alt="Simon the pensive"
-                      mr={{base:5,md:8,lg:12}}                    />
-                    <span>
-                      Cronometer <br /> <Text>For Healthcare Professional</Text>
-                    </span>
-                  </MenuItem>
-                </MenuList>
-              </Menu>
-            </Box>
-            <Box
-              _hover={{ color: "#ff763f" }}
-              fontSize={{ base: 10, md: 16, lg: 16 }}
-              flex={0.75}
-            >
-              <RouterLink to="/support">Support</RouterLink>
-            </Box>
-            <Box
-              _hover={{ color: "#ff763f" }}
-              fontSize={{ base: 10, md: 16, lg: 16 }}
-              flex={0.75}
-            >
-              {" "}
-              <RouterLink to="/blog">Blogs</RouterLink>
-            </Box>
-            <Box
-              _hover={{ color: "#ff763f" }}
-              fontSize={{ base: 10, md: 16, lg: 16 }}
-              flex={0.75}
-            >
-              {" "}
-              <RouterLink to="/">Forums</RouterLink>
-            </Box>
-            <Box
-              _hover={{ color: "#ff763f" }}
-              fontSize={{ base: 10, md: 16, lg: 16 }}
-              flex={0.75}
-            >
-              {" "}
-              <RouterLink to="/about">About</RouterLink>
-            </Box>
-            <Box flex={0.75}>
-              <RouterLink to="/signup">
-                <Button
-                  lineHeight="1.2"
-                  transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-                  border="1.5px solid #ff763f"
-                  px={{ base: 3, md: 6, lg: 8 }}
-                  borderRadius="5px"
-                  fontSize={{ base: 8, md: 16, lg: 18 }}
-                  fontWeight="semibold"
-                  bg="#fff"
-                  color="#ff763f"
-                  _hover={{ bg: "#fff" }}
-                  _active={{
-                    transform: "scale(0.98)",
-                    borderColor: "#ff763f",
-                  }}
-                  _focus={{
-                    boxShadow:
-                      "0 0 1px 2px rgba(255, 118, 63, .75), 0 1px 1px rgba(0, 0, 0, .15)",
-                  }}
-                >
-                  SignUp
-                </Button>
-              </RouterLink>
-            </Box>
+          <IconButton
+            onClick={onToggle}
+            icon={
+              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+            }
+            variant={"ghost"}
+            aria-label={"Toggle Navigation"}
+          />
+        </Flex>
+        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+          <Text
+            textAlign={useBreakpointValue({ base: "center", md: "left" })}
+            fontFamily={"heading"}
+            color={useColorModeValue("gray.800", "white")}
+          ></Text>
+          <RoutingLink to="/">
+            <Image
+              src={
+                "https://cdn1.cronometer.com/2021/landing/cronometer-logo.svg"
+              }
+              alt="lg"
+              marginLeft="50px"
+              marginRight={{ md: "25px", lg: "4px" }}
+              width="260px"
+            />
+          </RoutingLink>
+
+          <Flex display={{ base: "none", md: "flex" }}>
+            <DesktopNav />
           </Flex>
         </Flex>
-      </Box>
-    </>
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+          p={"12px"}
+          // pl={"125px"}
+          paddingRight={"25px"}
+        >
+          <Button
+            onClick={GotoReg}
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"m"}
+            color={"#FE773F"}
+            bg={"transparent"}
+            href={"#"}
+            border="1px solid #FE773F"
+            w="100px"
+            fontWeight="bold"
+            mr="50px"
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          >
+            Log in
+          </Button>
+        </Stack>
+      </Flex>
+
+      <Collapse in={isOpen} animateOpacity>
+        <MobileNav />
+      </Collapse>
+    </Box>
+  );
+}
+
+const DesktopNav = () => {
+  const linkColor = useColorModeValue("gray.600", "gray.200");
+  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+
+  return (
+    <Stack direction={"row"} ml="300px" mt="10px" spacing={6} color="black">
+      {NAV_ITEMS.map((navItem) => (
+        <Box key={navItem.label}>
+          <Popover trigger={"hover"} placement={"bottom-start"}>
+            <PopoverTrigger>
+              <RoutingLink
+                p={2}
+                to={navItem.path ?? "#"}
+                fontSize={"lg"}
+                fontWeight={450}
+                color={linkColor}
+                _hover={{
+                  textDecoration: "none",
+                  color: linkHoverColor,
+                }}
+              >
+                {navItem.label == "login" ? "" : navItem.label}
+              </RoutingLink>
+            </PopoverTrigger>
+
+            {navItem.children && (
+              <PopoverContent
+                border={0}
+                boxShadow={"xl"}
+                bg={popoverContentBgColor}
+                p={4}
+                rounded={"xl"}
+                minW={"sm"}
+              >
+                <Stack>
+                  {navItem.children.map((child) => (
+                    <DesktopSubNav key={child.label} {...child} />
+                  ))}
+                </Stack>
+              </PopoverContent>
+            )}
+          </Popover>
+        </Box>
+      ))}
+    </Stack>
   );
 };
 
-export default Navbar;
+const DesktopSubNav = ({ label, href, subLabel, image }) => {
+  return (
+    <Link
+      href={href}
+      role={"group"}
+      display={"block"}
+      p={2}
+      rounded={"md"}
+      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+    >
+      <Stack direction={"row"} align={"center"}>
+        <Box display="flex" gap="15px">
+          <Box>
+            <Image w="30px" src={image} />
+          </Box>
+          <Box>
+            <Text
+              transition={"all .3s ease"}
+              _groupHover={{ color: "pink.400" }}
+              fontWeight={500}
+            >
+              {label}
+            </Text>
+            <Text fontSize={"sm"}>{subLabel}</Text>
+          </Box>
+        </Box>
+        <Flex
+          transition={"all .3s ease"}
+          transform={"translateX(-10px)"}
+          opacity={0}
+          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+          justify={"flex-end"}
+          align={"center"}
+          flex={1}
+        >
+          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+        </Flex>
+      </Stack>
+    </Link>
+  );
+};
+
+const MobileNav = () => {
+  return (
+    <Stack
+      bg={useColorModeValue("white", "gray.800")}
+      p={4}
+      display={{ md: "none" }}
+    >
+      {NAV_ITEMS.map((navItem) => (
+        <MobileNavItem key={navItem.label} {...navItem} />
+      ))}
+    </Stack>
+  );
+};
+
+const MobileNavItem = ({ label, children, path }) => {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <Stack spacing={4} onClick={children && onToggle}>
+      <RoutingLink
+        display="flex"
+        py={2}
+        as={Link}
+        to={path ?? "#"}
+        justify={"space-between"}
+        align={"left"}
+        _hover={{
+          textDecoration: "none",
+        }}
+      >
+        <Box fontWeight={600} borderBottom="1px solid lightgrey">
+          {label}
+        </Box>
+        {children && (
+          <Icon
+            as={ChevronDownIcon}
+            transition={"all .25s ease-in-out"}
+            transform={isOpen ? "rotate(180deg)" : ""}
+            w={6}
+            h={6}
+          />
+        )}
+      </RoutingLink>
+
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+        <Stack
+          mt={2}
+          pl={4}
+          borderLeft={1}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.700")}
+          align={"start"}
+        >
+          {children &&
+            children.map((child) => (
+              <Link key={child.label} py={2} href={child.href}>
+                {child.label}
+              </Link>
+            ))}
+        </Stack>
+      </Collapse>
+    </Stack>
+  );
+};
+
+const NAV_ITEMS = [
+  {
+    label: "Products",
+    children: [
+      {
+        image:
+          "https://cdn1.cronometer.com/2021/landing/crono-icon-main-nav.svg",
+        label: "Cronometer",
+        subLabel: "For Individuals",
+        href: "#",
+      },
+      {
+        image: "https://cdn1.cronometer.com/2021/landing/pro-icon-main-nav.svg",
+        label: "Cronometer Pro",
+        subLabel: "For Healthcare Proffesionals",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "Support",
+    path: "/support",
+  },
+  {
+    label: "Blog",
+    path: "/blog",
+  },
+
+  {
+    label: "Forums",
+    path: "/",
+  },
+  {
+    label: "About",
+    path: "/about",
+  },
+  {
+    label: "login",
+    path: "/signup",
+  },
+];
