@@ -59,8 +59,6 @@ Cronometer is the most accurate, comprehensive nutrition tracking app on earth. 
         <li>Mongoose</li>
          <li>Express</li>
     </ul>
-    <h1>Area of responsiblites</h1>
- 
  A collaborative project built by a team of 5 developers , executed in 4 days.
 
 <h1>Contributing</h1>
