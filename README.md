@@ -14,10 +14,16 @@ Cronometer is the most accurate, comprehensive nutrition tracking app on earth. 
     <img src="https://github.com/Aakash-kushwaha/aberrant-coast-299/blob/main/cronometer/src/screenshots/Cronometer-login-page.png" />
       <h2>Nutrition tracking page</h2>
     <img src="https://github.com/Aakash-kushwaha/aberrant-coast-299/blob/main/cronometer/src/screenshots/Cronometer-main-homepage.png" />
+        <h2>Add Food</h2>
+    <img src="https://github.com/Aakash-kushwaha/aberrant-coast-299/blob/main/cronometer/src/screenshots/Cronometer-Addfood.png" />
+    <h2>Add Exercise</h2>
+    <img src="https://github.com/Aakash-kushwaha/aberrant-coast-299/blob/main/cronometer/src/screenshots/Cronometer-Add-Exercise.png" />
     <h2>Food Search</h2>
-    <img src="https://github.com/Aakash-kushwaha/aberrant-coast-299/blob/main/cronometer/src/screenshots/Cronometer-main-homepage.png" />
+    <img src="https://github.com/Aakash-kushwaha/aberrant-coast-299/blob/main/cronometer/src/screenshots/Cronometer-search-food.png" />
     <h2>Exercise Search</h2>
-    <img src="https://github.com/Aakash-kushwaha/aberrant-coast-299/blob/main/cronometer/src/screenshots/Cronometer-main-homepage.png" />
+    <img src="https://github.com/Aakash-kushwaha/aberrant-coast-299/blob/main/cronometer/src/screenshots/Cronometer-search-exercise.png" />
+    <h2>Video link</h2>
+    <a href="https://drive.google.com/file/d/1Qm2OCP7LsF_sWMBmHSTFljszpQCRl4FH/view?usp=sharing">presentation link</a>
     <h1>[Getting Started]</h1>
     <h3>Execution</h3>
     <p>If you want to run our project in your local machine</p>
