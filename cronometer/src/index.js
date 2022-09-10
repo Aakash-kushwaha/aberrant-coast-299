@@ -7,7 +7,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://boiling-eyrie-64580.herokuapp.com";
+axios.defaults.baseURL = "https://calm-journey-73944.herokuapp.com";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
