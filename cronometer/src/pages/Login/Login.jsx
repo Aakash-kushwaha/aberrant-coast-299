@@ -5,31 +5,27 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginHandler } from "../../redux/Auth/action";
-import { useEffect } from "react";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const token = useSelector((store) => store.authreducer.token);
-  const login = useSelector((store) => store.authreducer.login);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [CheckL, setCheck] = useState(false);
   const HandleLogin = () => {
     const user_data = {
       email,
       password,
     };
-    dispatch(LoginHandler(user_data));
-    setCheck(true);
+    dispatch(LoginHandler(user_data))
+    .then((res)=>
+    { if(res.type=="LOGIN_SUCCESS") {
+      return navigate("/home")
+    }else{
+      alert("invalid Credentials")
+    }
+  }
+    )
   };
-  useEffect(() => {
-    if (token && login) {
-      navigate("/home");
-    }
-    if (CheckL === true && login == false) {
-      alert("Invalid Credentials");
-    }
-  }, [token, login]);
+
   return (
     <div>
       <Box

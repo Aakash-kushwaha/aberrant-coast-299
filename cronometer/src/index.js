@@ -1,25 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ChakraProvider } from '@chakra-ui/react';
-import { BrowserRouter } from 'react-router-dom';
-import  axios  from 'axios';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter } from "react-router-dom";
+import axios from "axios";
 
+axios.defaults.baseURL = "https://calm-journey-73944.herokuapp.com";
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
-axios.defaults.baseURL = "https://boiling-eyrie-64580.herokuapp.com"
-axios.defaults.headers.post["Content-Type"]="application/json"
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <ChakraProvider>
-      <BrowserRouter>
-    <App />
+  <ChakraProvider>
+    <BrowserRouter>
+      <App />
     </BrowserRouter>
-    </ChakraProvider>
-  </React.StrictMode>
+  </ChakraProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
