@@ -11,13 +11,34 @@
 .date{
     width:350px;
     /* border:1px solid red; */
-    height: 300px;
+    height:270px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-bottom: 1rem;
+    /* border: none; */
     
 }
+.addvertisement{
+    width:350px;
+    /* border:1px solid rgb(15, 15, 15); */
+    height: 280px; 
+    margin-bottom: 1rem;
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-bottom: 1rem;
+}
+
+.addvertisement>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
 
 .curdate{
     width: 40%;
-     margin: auto
+     margin: auto;
+     /* border: 2px solid blue; */
 }
 
 
@@ -38,8 +59,15 @@
     /* width: 500px; */
      background-color: whitesmoke;
      justify-content: space-around;
+     /* border: 1px solid teal; */
   
 }
 .headernav>div{
     display: flex;
+}
+
+
+.table_container{
+    /* border:2px solid blue; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }

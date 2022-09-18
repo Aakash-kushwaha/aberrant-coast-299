@@ -10,6 +10,11 @@ import Login from "../pages/Login/Login";
 import Forget from "../pages/ForgetPassword/forget";
 import Profile from "../pages/Profile/Profile";
 import PrivateRoute from "./PrivateRoute";
+import InnerNav from "../pages/Diarypage/Diary/InnerNavbar";
+import InnerRoutes from "./InnerRoutes";
+import Plans from "../pages/plans/Plans";
+import Settings from "../pages/settings/Settings";
+import Footer from "../components/footer/Footer";
 
 
 const MainRoute = () => {
@@ -17,20 +22,21 @@ const MainRoute = () => {
   console.log(token, "token");
   return (
     <div>
-    
+    {/* <InnerNav></InnerNav> */}
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<PrivateRoute><Addfood></Addfood></PrivateRoute>}></Route>
-        <Route path="/diary" element={<Addfood></Addfood>}></Route>
         <Route path="/support" element={<Support />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/forgotpassword" element={<Forget />} />
-        <Route path="/profile" element={<Profile></Profile>}></Route>
+        <Route path="/plans" element={<Plans></Plans>}></Route>
+        <Route path="/settings" element={<Settings></Settings>}></Route>
+        {/* <Route path="/forgotpassword" element={<Forget />} /> */}
+        {/* <Route path="/profile" element={<Profile></Profile>}></Route> */}
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

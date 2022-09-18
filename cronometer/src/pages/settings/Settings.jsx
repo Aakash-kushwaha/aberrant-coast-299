@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 import { useNavigate} from "react-router-dom";
 import axios from "axios";
 import Profile from '../Profile/Profile';
+import InnerNav from '../Diarypage/Diary/InnerNavbar';
 const Settings = () => {
   // const token=useSelector((state)=>state.authreducer.token);
   const navigate=useNavigate();
@@ -18,11 +19,14 @@ const Settings = () => {
   const handleDeleteAccount=()=>{
     navigate("/");
   }
-  return (<div className={styles.container}>
+  return (
+    <div>
+    <InnerNav></InnerNav>
+  <div className={styles.container}>
     <Tabs variant='enclosed' size='sm' align='center'>
   <TabList>
     <Tab>Account</Tab>
-    <Tab onClick={()=>navigate("/profile")}>Profile+Target</Tab>
+    <Tab >Profile+Target</Tab>
     <Tab>Target Scheduler</Tab>
     <Tab>Fasting</Tab>
     <Tab>Display</Tab>
@@ -128,7 +132,10 @@ const Settings = () => {
     </TabPanel>
   </TabPanels>
 </Tabs>
-  </div>)
+  </div>
+    </div>
+
+  )
 }
 
 export default Settings
